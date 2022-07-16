@@ -27,6 +27,8 @@ public class TableScript : StateInteractor
         {
             anim.SetTrigger("SlideOut");
         }
+        
+        SoundManager.PlaySound(GameAssets.Instance.sounds[5]);
     }
 
     public void SetToRollable()

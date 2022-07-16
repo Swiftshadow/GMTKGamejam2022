@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DieManager : StateInteractor
 {
@@ -99,6 +100,15 @@ public class DieManager : StateInteractor
         mod *= modDir;
         
         GameManager.Instance.SetStat(stat, mod);
+
+        if (modDir > 0)
+        {
+            SoundManager.PlaySound(GameAssets.Instance.sounds[3]);
+        }
+        else
+        {
+            SoundManager.PlaySound(GameAssets.Instance.sounds[7]);
+        }
         
         requestStateChange.RaiseEvent((int)GameManager.GameState.Modifying);
         
@@ -117,6 +127,7 @@ public class DieManager : StateInteractor
             dieChannel.OnEventRaised += ReportResult;
             ds.rollResultChannel = dieChannel;
         }
+        SoundManager.PlaySound(GameAssets.Instance.sounds[Random.Range(0, 3)]);
     }
 
     private void ReportResult(SelfIntChannel channel, int num)
@@ -136,7 +147,7 @@ public class DieManager : StateInteractor
     private IEnumerator ShowResults()
     {
         yield return new WaitForSeconds(delayTime);
-        
+
         foreach (var die in spawnedDice)
         {
             Destroy(die);
