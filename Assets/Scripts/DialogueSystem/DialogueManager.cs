@@ -12,15 +12,29 @@ public class DialogueManager : StateInteractor
     [SerializeField] private List<DialoguePool> pools;
     [SerializeField] private DialoguePool successPool;
     [SerializeField] private DialoguePool failPool;
+    /// <summary>
+    /// Data from the first option
+    /// </summary>
     private DialogueOption option1Data;
+    /// <summary>
+    /// Data from the second option
+    /// </summary>
     private DialogueOption option2Data;
+    /// <summary>
+    /// Data from the reaction
+    /// </summary>
     private DialogueOption reactData;
 
-    private List<string> currentLines;
+    [SerializeField] private List<string> currentLines;
     [SerializeField] private float loadDelay;
     private int lineIndex;
     private bool loadingText;
     private Coroutine coroutineBuffer;
+
+    [Header("Event Stuff")]
+    [SerializeField] private DialogueOption gameIntroDialogue;
+    [SerializeField] private DialogueOption gameWinDialogue;
+    [SerializeField] private DialogueOption gameLoseDialogue;
 
     [Header("Channels")]
     [SerializeField] private IntIntChannel choiceStatChannel;
@@ -34,18 +48,76 @@ public class DialogueManager : StateInteractor
     [Tooltip("Max amount of characters allowed in a box")]
     [SerializeField] private int textboxLimit;
 
+
+    public enum DialogueState
+    {
+        Loading,
+        Start,
+        WaitingForRoll,
+        PlayerChoice, 
+        Response,
+        End
+    }
+    [SerializeField] private DialogueState currState = DialogueState.Loading;
+
+
     private void Start()
     {
+        currentLines = new List<string>();
         dialogueSuccessChannel.OnEventRaised += ChooseReactDialogue;
+        NextState(false);
     }
 
-    // When state changed to talking, start dialogue system 
     protected override void OnStateChange(int arg0)
     {
-        // If transitioned to talking state, load dialogue
-        if(GameManager.Instance.CurrentState == GameManager.GameState.Talking)
+        if (GameManager.Instance.CurrentState == GameManager.GameState.Talking
+            && currState == DialogueState.WaitingForRoll)
         {
-            GetDialogueOptions();
+            Debug.Log("[DialogueManager] State change accepted, moving to player choice");
+            NextState(false);
+        }
+            
+    }
+
+    /// <summary>
+    /// Move onto the next state and start the next function
+    /// </summary>
+    /// <param name="gameEnd"></param>
+    private void NextState(bool gameEnd)
+    {
+        switch (currState)
+        {
+            case DialogueState.Loading:
+                currState = DialogueState.Start;
+                PrepDialogue(gameIntroDialogue);
+                break;
+            case DialogueState.Start:
+                currState = DialogueState.WaitingForRoll;
+                break;
+            case DialogueState.WaitingForRoll:
+                currState = DialogueState.PlayerChoice;
+                GetDialogueOptions();
+                break;
+            case DialogueState.PlayerChoice:
+                // Text started by react func
+                currState = DialogueState.Response;
+                break;
+            case DialogueState.Response:
+                if (gameEnd)
+                {
+                    currState = DialogueState.End;
+                    if (GameManager.Instance.CurrentState == GameManager.GameState.Win)
+                        PrepDialogue(gameWinDialogue);
+                    else
+                        PrepDialogue(gameLoseDialogue);
+                }
+                else
+                {
+                    currState = DialogueState.WaitingForRoll;
+                }
+                break;
+            case DialogueState.End:
+                break;
         }
     }
 
@@ -54,6 +126,9 @@ public class DialogueManager : StateInteractor
     /// </summary>
     private void GetDialogueOptions()
     {
+        option1.transform.parent.gameObject.SetActive(true);
+        option2.transform.parent.gameObject.SetActive(true);
+
         int opt1 = Random.Range(0, pools.Count);
         int opt2;
         do
@@ -64,8 +139,8 @@ public class DialogueManager : StateInteractor
         option1Data = pools[opt1].GetFromPool();
         option2Data = pools[opt2].GetFromPool();
 
-        StartCoroutine(LoadText(option1, option1Data.dialogueFull, 0));
-        StartCoroutine(LoadText(option2, option2Data.dialogueFull, 0));
+        StartCoroutine(LoadText(option1, option1Data.dialogueShorthand, 0));
+        StartCoroutine(LoadText(option2, option2Data.dialogueShorthand, 0));
     }
 
     /// <summary>
@@ -74,16 +149,17 @@ public class DialogueManager : StateInteractor
     /// <param name="option">The option selected. [1,2]</param>
     public void ExportChoice(int option)
     {
-        Debug.Log("[DialogueManager] Exporting out option " + option);
         option1.transform.parent.gameObject.SetActive(false);
         option2.transform.parent.gameObject.SetActive(false);
 
         if (option == 1)
         {
+            PrepDialogue(option1Data);
             choiceStatChannel.RaiseEvent((int)option1Data.statID, option1Data.statVal);
         }
         else if (option == 2)
         {
+            PrepDialogue(option2Data);
             choiceStatChannel.RaiseEvent((int)option2Data.statID, option2Data.statVal);
         }
     }
@@ -103,7 +179,7 @@ public class DialogueManager : StateInteractor
             reactData = failPool.GetFromPool();
         }
 
-        PrepDialogue(reactData);
+        
     }
 
     /// <summary>
@@ -120,7 +196,7 @@ public class DialogueManager : StateInteractor
         for (int i = 0; i < fulldata.Length; i++)
         {
             // If a space, finish word, try adding to line
-            if (fulldata[i] == ' ' || fulldata[i] == '\n')
+            if (fulldata[i] == ' ')
             {
                 // If it fits, then add word to line
                 if (word.Length + line.Length + 1 <= textboxLimit && fulldata[i] == ' ')
@@ -170,8 +246,16 @@ public class DialogueManager : StateInteractor
         // If reached final line, then send out a signal
         else if(lineIndex == currentLines.Count)
         {
-            Debug.Log("Finished current dialogue!");
+            Debug.Log("Finished current dialogue! Calling state change!");
             dialogueBox.text = "";
+
+            if(currState == DialogueState.PlayerChoice)
+            {
+                PrepDialogue(reactData);
+            }
+
+            NextState(GameManager.Instance.CurrentState == GameManager.GameState.Win 
+                || GameManager.Instance.CurrentState == GameManager.GameState.Lose);
         }
         // Progress to the next line
         else
@@ -179,6 +263,7 @@ public class DialogueManager : StateInteractor
             coroutineBuffer = StartCoroutine(LoadText(dialogueBox, currentLines[lineIndex], loadDelay));
         }
     }
+
 
     /// <summary>
     /// Submit some dialogue to play independent of the choice/roll system

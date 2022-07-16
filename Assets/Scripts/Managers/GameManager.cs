@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         currScore = startScore;
-        ChangeState((int)GameState.Talking);
     }
 
     private void OnDisable()
@@ -293,7 +292,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            ChangeState((int)GameState.Rolling);
+            ChangeState((int)GameState.SlideIn);
         }
     }
 

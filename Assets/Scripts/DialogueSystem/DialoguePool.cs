@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Dialogue Pool", menuName = "ScriptableObjects/Dialogue Pool")]
-public class DialoguePool : ScriptableObject
+public class DialoguePool : MonoBehaviour
 {
-    [SerializeField] private List<DialogueOption> pool;
+    private List<DialogueOption> pool;
     [SerializeField] private List<DialogueOption> corePool;
-
     private DialogueOption lastUsed = null;
     private bool justRefreshed = false;
 
     private void Start()
     {
-        corePool = new List<DialogueOption>(pool);
+        pool = new List<DialogueOption>(corePool);
     }
 
     /// <summary>
@@ -28,7 +26,6 @@ public class DialoguePool : ScriptableObject
         do
         {
             r = Random.Range(0, pool.Count);
-            Debug.Log("Pool : " + r);
             option = pool[r];
         } while (justRefreshed && option == lastUsed);
         justRefreshed = false;
