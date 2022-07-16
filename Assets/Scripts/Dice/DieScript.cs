@@ -33,6 +33,7 @@ public class DieScript : MonoBehaviour
         int dirX = (Random.Range(0, 2) * 2) - 1;
         int dirZ = (Random.Range(0, 2) * 2) - 1;
         rb.velocity = new Vector3(speedX * dirX, 0, speedZ * dirZ);
+        rb.angularVelocity = new Vector3(Random.Range(-5f, 5), Random.Range(-5f, 5), Random.Range(-5f, 5));
         StartCoroutine(CheckSide());
     }
 

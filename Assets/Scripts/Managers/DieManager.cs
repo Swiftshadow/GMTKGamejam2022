@@ -118,7 +118,7 @@ public class DieManager : StateInteractor
     {
         for (int i = 0; i < f; ++i)
         {
-            DieScript ds = Instantiate(dice[i]).GetComponent<DieScript>();
+            DieScript ds = Instantiate(dice[i], transform.position, Quaternion.identity).GetComponent<DieScript>();
 
             spawnedDice.Add(ds.gameObject);
             
