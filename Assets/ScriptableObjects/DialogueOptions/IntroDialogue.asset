@@ -12,12 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: IntroDialogue
   m_EditorClassIdentifier: 
-  dialogueFull: 'hohoho
-
-    its me santa
-
-    now play my game you stupid little
-    shi-'
+  dialogueFull: "Luck: \"Well it\u2019s been fun, dear, but I\u2019m afraid I have
+    to depart. As the Goddess of Luck, I have quite a bit of work I need to attend
+    to. Those gamblers won\u2019t swindle themselves.\"\nLuck: \"Don\u2019t worry.
+    I can cover the bill for you, since I know you aren\u2019t as\u2026how do I say\u2026well
+    off, unlike me.\"\nMC: You pucker your lips, insulted by her implications. You\u2019re
+    unsure if she\u2019s trying to make you foot the bill, but you can\u2019t find
+    yourself to care. At this point, you feel like it\u2019s an attack on your pride
+    if you're not the one to pay.\nMC: She sees your indignation and scoffs.\nLuck:
+    \u201CWhat, you think I\u2019m trying to scam you into paying the bill?\u201D\nMC:
+    You lean back and take a sip of your water. It\u2019s exactly what you're implying.
+    You see her lips curl in frustration. \nLuck: \u201CHow dare you! I am Lady Luck.
+    I don\u2019t need a mortal to cover for me. I was trying to be nice.\u201D\nMC:
+    You raise your eyebrows questioningly. Yeah right. \nMC: She looks surprised.
+    \nLuck: \u201CYou seriously don\u2019t believe me? Fine then. How about we make
+    this interesting and let the dice decide. Let\u2019s see who\u2019s going to
+    pay tonight.\u201D\nMC: You crack your knuckles. Tonight, there is only going
+    to be one victor, and it\u2019s going to be you. You WILL be the one paying the
+    bill."
   dialogueShorthand: 
   statID: 0
   statVal: 0
