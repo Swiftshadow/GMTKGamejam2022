@@ -77,6 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
   requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  nextDialogChannel: {fileID: 11400000, guid: 75fc1f0dc68f5e64c982a81ae7cabd7b, type: 2}
+  tempCall: 0
 --- !u!1 &2048628920459014846
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +163,7 @@ MonoBehaviour:
   dice:
   - {fileID: 2817636471981277499, guid: 56483fab7646a9d458e1cae4223b2006, type: 3}
   - {fileID: 7785691676113641872, guid: 40b993c20ed62044f9f67c435ced9041, type: 3}
+  delayTime: 0.5
   dieChannels: []
 --- !u!1 &5146563152322857685
 GameObject:

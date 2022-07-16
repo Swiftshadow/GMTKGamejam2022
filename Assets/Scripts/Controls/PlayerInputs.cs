@@ -13,7 +13,9 @@ public class PlayerInputs : StateInteractor
     private InputAction rollDice;
 
     private InputAction pause;
-    
+
+    private InputAction nextDialog;
+    [SerializeField] private VoidChannel nextDialogChannel;
     
     //TODO: REMOVE TEMP
     private InputAction temp;
@@ -27,6 +29,7 @@ public class PlayerInputs : StateInteractor
         rollDice = controls.Player.RollDice;
         pause = controls.Player.Pause;
         temp = controls.Player.Temp;
+        nextDialog = controls.Player.NextDialog;
         controls.Player.Enable();
     }
 
@@ -37,6 +40,8 @@ public class PlayerInputs : StateInteractor
         rollDice.performed += SubscribeRolling;
 
         pause.performed += SubscribePausing;
+
+        nextDialog.performed += SubscribeNextDialog;
 
         temp.performed += SubscribeTemp;
     }
@@ -52,6 +57,8 @@ public class PlayerInputs : StateInteractor
         rollDice.performed -= SubscribeRolling;
 
         pause.performed -= SubscribePausing;
+        
+        nextDialog.performed -= SubscribeNextDialog;
         
         temp.performed -= SubscribeTemp;
     }
@@ -69,5 +76,10 @@ public class PlayerInputs : StateInteractor
     private void SubscribeTemp(InputAction.CallbackContext obj)
     {
         requestStateChange.RaiseEvent((int)tempCall);
+    }
+
+    private void SubscribeNextDialog(InputAction.CallbackContext obj)
+    {
+        nextDialogChannel.RaiseEvent();
     }
 }
