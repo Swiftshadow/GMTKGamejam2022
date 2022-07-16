@@ -52,11 +52,6 @@ public class GameManager : MonoBehaviour
         currScore = startScore;
     }
 
-    private void OnDisable()
-    {
-        
-    }
-
     #region State Control
     [SerializeField] private IntChannel stateChangedChannel;
 
@@ -98,6 +93,14 @@ public class GameManager : MonoBehaviour
         buyStatChannel.OnEventRaised += BuyStat;
         sellStatChannel.OnEventRaised += SellStat;
         choiceStatChannel.OnEventRaised += DetermineSuccess;
+    }
+
+    private void OnDisable()
+    {
+        requestStateChange.OnEventRaised -= ChangeState;
+        buyStatChannel.OnEventRaised -= BuyStat;
+        sellStatChannel.OnEventRaised -= SellStat;
+        choiceStatChannel.OnEventRaised -= DetermineSuccess;
     }
 
     /// <summary>
@@ -263,7 +266,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int startScore;
     [SerializeField] private int winIncrement;
     [SerializeField] private int loseDecrement;
-    private int currScore;
+    [SerializeField] private int currScore;
 
     private void DetermineSuccess(int statID, int statThreshold)
     {
@@ -282,11 +285,11 @@ public class GameManager : MonoBehaviour
         currScore = Mathf.Clamp(currScore, 0, maxScore);
 
         // Determine next state
-        if (currScore == maxScore)
+        if (currScore >= maxScore)
         {
             ChangeState((int)GameState.Win);
         }
-        else if (currScore == 0)
+        else if (currScore <= 0)
         {
             ChangeState((int)GameState.Lose);
         }

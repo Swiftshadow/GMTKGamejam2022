@@ -178,6 +178,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 4659544277586549490, guid: ab7cf50573375274183f70b858e08462, type: 3}
+      propertyPath: maxScore
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659544277586549490, guid: ab7cf50573375274183f70b858e08462, type: 3}
+      propertyPath: startScore
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659544277586549490, guid: ab7cf50573375274183f70b858e08462, type: 3}
+      propertyPath: winIncrement
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659544277586549490, guid: ab7cf50573375274183f70b858e08462, type: 3}
+      propertyPath: loseDecrement
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab7cf50573375274183f70b858e08462, type: 3}
 --- !u!1 &317962674
