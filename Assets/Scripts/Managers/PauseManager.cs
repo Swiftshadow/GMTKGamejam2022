@@ -28,5 +28,7 @@ public class PauseManager : StateInteractor
             LoadManager.Instance.UnloadAddative(scene);
         }
         
+        SoundManager.PlaySound(GameAssets.Instance.sounds[4]);
+        
     }
 }
