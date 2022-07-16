@@ -335,6 +335,65 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+--- !u!1 &613132880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 613132882}
+  - component: {fileID: 613132881}
+  m_Layer: 0
+  m_Name: Dialogue Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &613132881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613132880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5317319db7e88448a5a974bff26655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  pools:
+  - {fileID: 11400000, guid: 2defceeb022b28f4484dca11938f2acf, type: 2}
+  - {fileID: 11400000, guid: ef87dc45232dbf44895f6340e9097b8f, type: 2}
+  - {fileID: 11400000, guid: a1c59972b0b6cb7488a484d1611d112b, type: 2}
+  successPool: {fileID: 11400000, guid: 75c8408a91bae6543974536a5488a8a3, type: 2}
+  failPool: {fileID: 11400000, guid: abd4188b972203240b27fba07f8648cd, type: 2}
+  loadDelay: 0.01
+  choiceStatChannel: {fileID: 11400000, guid: 905764450ff6ae94f924cbf41645cdd4, type: 2}
+  dialogueSuccessChannel: {fileID: 11400000, guid: d361cb520c1c5724d838b9e2f174a944, type: 2}
+  option1: {fileID: 1562940768}
+  option2: {fileID: 1329343632}
+  dialogueBox: {fileID: 0}
+  textboxLimit: 50
+--- !u!4 &613132882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613132880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1234.1196, y: 771.4133, z: -130.88777}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &707637175
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +406,7 @@ GameObject:
   - component: {fileID: 707637180}
   - component: {fileID: 707637179}
   - component: {fileID: 707637178}
-  - component: {fileID: 707637177}
+  - component: {fileID: 707637181}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -376,21 +435,6 @@ RectTransform:
   m_AnchoredPosition: {x: -293, y: 150}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &707637177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707637175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a51457a47fb10294a81cb30d952e0f8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNames:
-  - GameplayUI
-  addativeLoad: 0
 --- !u!114 &707637178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,14 +479,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 707637177}
-        m_TargetAssemblyTypeName: ButtonLoader, Assembly-CSharp
-        m_MethodName: Unload
-        m_Mode: 1
+      - m_Target: {fileID: 707637181}
+        m_TargetAssemblyTypeName: ButtonChannel, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -485,6 +529,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707637175}
   m_CullTransparentMesh: 1
+--- !u!114 &707637181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707637175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadf83c61a24d4048b337719b8668ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
 --- !u!1 &1164056670
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +965,9 @@ GameObject:
   - component: {fileID: 1523130571}
   - component: {fileID: 1523130573}
   - component: {fileID: 1523130572}
+  - component: {fileID: 1523130574}
+  - component: {fileID: 1523130575}
+  - component: {fileID: 1523130576}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -934,7 +994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 125.78354, y: -102.98}
+  m_AnchoredPosition: {x: 125.78354, y: -136}
   m_SizeDelta: {x: 123.5671, y: 141.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1523130572
@@ -975,6 +1035,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523130570}
   m_CullTransparentMesh: 1
+--- !u!114 &1523130574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523130570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 3
+  triggerName: SlideOut
+--- !u!95 &1523130575
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523130570}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc1ed815ae5d615419f661f897ee6d6d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1523130576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523130570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 7
+  triggerName: SlideIn
 --- !u!1 &1562940766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1369,9 @@ GameObject:
   - component: {fileID: 1724255793}
   - component: {fileID: 1724255792}
   - component: {fileID: 1724255791}
-  - component: {fileID: 1724255790}
+  - component: {fileID: 1724255794}
+  - component: {fileID: 1724255795}
+  - component: {fileID: 1724255796}
   m_Layer: 5
   m_Name: Player Dialogue 1
   m_TagString: Untagged
@@ -1286,20 +1400,6 @@ RectTransform:
   m_AnchoredPosition: {x: 280, y: 140}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1724255790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724255788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a51457a47fb10294a81cb30d952e0f8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNames: []
-  addativeLoad: 0
 --- !u!114 &1724255791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1394,6 +1494,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724255788}
   m_CullTransparentMesh: 1
+--- !u!114 &1724255794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724255788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 3
+  triggerName: SlideOut
+--- !u!95 &1724255795
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724255788}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c78e8a62032aded49acd12b9bd6ee2eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1724255796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724255788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 7
+  triggerName: SlideIn
 --- !u!1 &1912161666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1557,9 @@ GameObject:
   - component: {fileID: 1912161667}
   - component: {fileID: 1912161669}
   - component: {fileID: 1912161668}
+  - component: {fileID: 1912161670}
+  - component: {fileID: 1912161671}
+  - component: {fileID: 1912161672}
   m_Layer: 5
   m_Name: Player Dialogue 3
   m_TagString: Untagged
@@ -1471,3 +1626,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912161666}
   m_CullTransparentMesh: 1
+--- !u!114 &1912161670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912161666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 3
+  triggerName: SlideOut
+--- !u!95 &1912161671
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912161666}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c070d8718fe2672428b0bfa5d6804d36, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1912161672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912161666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 7
+  triggerName: SlideIn
