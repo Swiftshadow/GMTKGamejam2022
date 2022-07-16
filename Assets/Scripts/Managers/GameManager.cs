@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         if (instance is null)
         {
             instance = this;
+            maxPoints = points;
             DontDestroyOnLoad(this.gameObject.transform.parent);
         }
         else
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region State Control
     [SerializeField] private IntChannel stateChangedChannel;
 
     [SerializeField] private IntChannel requestStateChange;
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     private GameState previousState;
     
+
     public GameState CurrentState
     {
         get
@@ -74,6 +77,8 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         requestStateChange.OnEventRaised += ChangeState;
+        buyStatChannel.OnEventRaised += BuyStat;
+        sellStatChannel.OnEventRaised += SellStat;
     }
 
     /// <summary>
@@ -87,4 +92,99 @@ public class GameManager : MonoBehaviour
         currentState = (GameState)state;
         stateChangedChannel.RaiseEvent(state);
     }
+    
+    #endregion
+
+    #region Stats
+
+    [SerializeField] private IntChannel buyStatChannel;
+
+    [SerializeField] private IntChannel sellStatChannel;
+    
+    [Tooltip("Base stats. First is Charm, second is Int, third is Guilt")]
+    [SerializeField] private int[] baseStats;
+    
+    /// <summary>
+    /// Stat mods. First is Charm, second is Int, third is Guilt
+    /// </summary>
+    [SerializeField] private int[] modStats;
+
+    [SerializeField] private int points = 3;
+
+    private int maxPoints;
+    
+    public int Points
+    {
+        get
+        {
+            return points;
+        }
+
+        set
+        {
+            points = value;
+        }
+        
+    }
+
+    /// <summary>
+    /// Gets the specific stat.
+    /// 0 is Charm
+    /// 1 is Int
+    /// 2 is Guilt
+    /// </summary>
+    /// <param name="index">Which stat to get</param>
+    /// <returns></returns>
+    public int GetStat(int index)
+    {
+        return baseStats[index] - modStats[index];
+    }
+
+    /// <summary>
+    /// Sets the specific stat.
+    /// 0 is Charm
+    /// 1 is Int
+    /// 2 is Guilt
+    /// </summary>
+    /// <param name="index">Which stat to set</param>
+    /// <param name="value">Value to set it to</param>
+    /// <returns></returns>
+    public void SetStat(int index, int value)
+    {
+        modStats[index] = value;
+    }
+
+    /// <summary>
+    /// Sets the specific base stat.
+    /// 0 is Charm
+    /// 1 is Int
+    /// 2 is Guilt
+    /// </summary>
+    /// <param name="index">Which stat to set</param>
+    /// <param name="value">Value to set it to</param>
+    /// <returns></returns>
+    private void SetBaseStat(int index, int value)
+    {
+        baseStats[index] = value;
+    }
+
+    public void BuyStat(int index)
+    {
+        if (points > 0)
+        {
+            --points;
+            SetBaseStat(index, baseStats[index] + 1);
+        }
+    }
+
+    public void SellStat(int index)
+    {
+        if (points < maxPoints && baseStats[index] > 0)
+        {
+            ++points;
+            SetBaseStat(index, baseStats[index] - 1);
+        }
+    }
+    
+    #endregion
 }

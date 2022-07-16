@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,20 +7,7 @@ public class DieManager : StateInteractor
 {
     [SerializeField] private float diceToSpawn = 2;
 
-    [SerializeField] private GameObject die;
-
-    public GameObject Die
-    {
-        get
-        {
-            return die;
-        }
-
-        set
-        {
-            die = value;
-        }
-    }
+    [SerializeField] private GameObject[] dice;
 
     private Coroutine rollRoutine;
 
@@ -27,15 +15,26 @@ public class DieManager : StateInteractor
 
     private List<GameObject> spawnedDice = new List<GameObject>();
 
-    private int result;
+    private int stat;
 
-    public int Result
+    private int mod;
+
+    public int Stat
     {
         get
         {
-            return result;
+            return stat;
         }
     }
+
+    private int Mod
+    {
+        get
+        {
+            return mod;
+        }
+    }
+    
     protected override void OnStateChange(int intState)
     {
         GameManager.GameState state = (GameManager.GameState)intState;
@@ -49,7 +48,14 @@ public class DieManager : StateInteractor
             return;
         }
 
-        result = 0;
+        // Zero out all mods before running the next dice
+        for (int i = 0; i < 3; ++i)
+        {
+            GameManager.Instance.SetStat(i, 0);
+        }
+        
+        stat = 0;
+        mod = 0;
         rollRoutine = StartCoroutine(RollRoutine());
         
 
@@ -72,6 +78,14 @@ public class DieManager : StateInteractor
         }
         
         spawnedDice.Clear();
+
+        int modDir = Math.Sign(stat);
+
+        stat = Mathf.Abs(stat);
+        stat -= 7;
+        mod *= modDir;
+        
+        GameManager.Instance.SetStat(stat, mod);
         
         requestStateChange.RaiseEvent((int)GameManager.GameState.Modifying);
         
@@ -81,7 +95,7 @@ public class DieManager : StateInteractor
     {
         for (int i = 0; i < f; ++i)
         {
-            DieScript ds = Instantiate(die).GetComponent<DieScript>();
+            DieScript ds = Instantiate(dice[i]).GetComponent<DieScript>();
 
             spawnedDice.Add(ds.gameObject);
             
@@ -94,7 +108,14 @@ public class DieManager : StateInteractor
 
     private void ReportResult(SelfIntChannel channel, int num)
     {
-        result += num;
+        if (Mathf.Abs(num) >= 7)
+        {
+            stat = num;
+        }
+        else
+        {
+            mod = num;
+        }
         Debug.Log($"Adding {num} to result!");
         dieChannels.Remove(channel);
     }
