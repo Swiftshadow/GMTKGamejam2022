@@ -125,11 +125,16 @@ MonoBehaviour:
   stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
   requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
   currentState: 0
-  previousState: 0
   buyStatChannel: {fileID: 11400000, guid: 374058300971c354cb2d63bbce997dc0, type: 2}
   sellStatChannel: {fileID: 11400000, guid: a87230512d86bce48b141930e44b9106, type: 2}
   baseStats: 00000000000000000000000003000000
   modStats: 00000000000000000000000000000000
+  choiceStatChannel: {fileID: 11400000, guid: 905764450ff6ae94f924cbf41645cdd4, type: 2}
+  dialogueSuccessChannel: {fileID: 11400000, guid: d361cb520c1c5724d838b9e2f174a944, type: 2}
+  maxScore: 0
+  startScore: 0
+  winIncrement: 0
+  loseDecrement: 0
 --- !u!1 &4858210168215255970
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +148,7 @@ GameObject:
   - component: {fileID: 1404650857054480003}
   m_Layer: 0
   m_Name: GameAssets
-  m_TagString: Untagged
+  m_TagString: GameAssets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
