@@ -262,11 +262,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private IntIntChannel choiceStatChannel;
     [SerializeField] private BoolChannel dialogueSuccessChannel;
-    [SerializeField] private int maxScore;
+    [SerializeField] public int maxScore;
     [SerializeField] private int startScore;
     [SerializeField] private int winIncrement;
     [SerializeField] private int loseDecrement;
-    [SerializeField] private int currScore;
+    [SerializeField] public int currScore;
 
     private void DetermineSuccess(int statID, int statThreshold)
     {
