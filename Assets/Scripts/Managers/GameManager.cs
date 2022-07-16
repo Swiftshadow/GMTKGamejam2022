@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         if (instance is null)
         {
             instance = this;
-            maxPoints = points;
+            maxPoints = baseStats[3];
             DontDestroyOnLoad(this.gameObject.transform.parent);
         }
         else
@@ -49,9 +49,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private IntChannel requestStateChange;
 
-    private GameState currentState;
+    private GameState currentState = GameState.Menu;
 
-    private GameState previousState;
+    private GameState previousState = GameState.Menu;
     
 
     public GameState CurrentState
@@ -64,13 +64,14 @@ public class GameManager : MonoBehaviour
     
     public enum GameState
     {
+        Menu,
         StatSelection,
+        Transition,
         Rolling,
         Modifying,
         Talking,
         Win,
         Lose,
-        Menu,
         Paused
     }
 
@@ -89,6 +90,7 @@ public class GameManager : MonoBehaviour
     private void ChangeState(int state)
     {
         GameState newState = (GameState)state;
+        Debug.Log($"[GameManager] Request to change state to {newState}");
         // Prevents jumping states, unless going to a menu, win, or lose
         switch (newState)
         {
@@ -97,7 +99,7 @@ public class GameManager : MonoBehaviour
                 {
                     break;
                 }
-                if ((currentState != GameState.Talking && currentState != GameState.StatSelection))
+                if ((currentState != GameState.Talking && currentState != GameState.Transition))
                 {
                     return;
                 }
@@ -122,7 +124,12 @@ public class GameManager : MonoBehaviour
                     return;
                 }
                 break;
+            default:
+                Debug.Log("[GameManager] New state has no entry conditions");
+                break;
         }
+        
+        Debug.Log($"[GameManager] Changing to {newState}");
         
         previousState = currentState;
         currentState = newState;
@@ -137,7 +144,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private IntChannel sellStatChannel;
     
-    [Tooltip("Base stats. First is Charm, second is Int, third is Guilt")]
+    [Tooltip("Base stats. First is Charm, second is Int, third is Guilt, fourth is points")]
     [SerializeField] private int[] baseStats;
     
     /// <summary>
@@ -145,23 +152,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField] private int[] modStats;
 
-    [SerializeField] private int points = 3;
-
     private int maxPoints;
-    
-    public int Points
-    {
-        get
-        {
-            return points;
-        }
-
-        set
-        {
-            points = value;
-        }
-        
-    }
 
     /// <summary>
     /// Gets the specific stat.
@@ -206,18 +197,18 @@ public class GameManager : MonoBehaviour
 
     public void BuyStat(int index)
     {
-        if (points > 0)
+        if (baseStats[3] > 0)
         {
-            --points;
+            --baseStats[3];
             SetBaseStat(index, baseStats[index] + 1);
         }
     }
 
     public void SellStat(int index)
     {
-        if (points < maxPoints && baseStats[index] > 0)
+        if (baseStats[3] < maxPoints && baseStats[index] > 0)
         {
-            ++points;
+            ++baseStats[3];
             SetBaseStat(index, baseStats[index] - 1);
         }
     }
