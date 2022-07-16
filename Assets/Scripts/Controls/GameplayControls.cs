@@ -44,6 +44,24 @@ public partial class @GameplayControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Temp"",
+                    ""type"": ""Button"",
+                    ""id"": ""672f2515-6629-4555-af60-2d58b40bfb4c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextDialog"",
+                    ""type"": ""Button"",
+                    ""id"": ""cbdfccd2-64b2-4bec-82d5-18a5dece4e96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +86,28 @@ public partial class @GameplayControls : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad2f3971-81ba-4929-9292-6500fe9a239e"",
+                    ""path"": ""<Keyboard>/numpad5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Temp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1583a137-8402-43e1-b727-f92e1f14e678"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextDialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -84,6 +124,8 @@ public partial class @GameplayControls : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_RollDice = m_Player.FindAction("RollDice", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_Temp = m_Player.FindAction("Temp", throwIfNotFound: true);
+        m_Player_NextDialog = m_Player.FindAction("NextDialog", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -145,12 +187,16 @@ public partial class @GameplayControls : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_RollDice;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_Temp;
+    private readonly InputAction m_Player_NextDialog;
     public struct PlayerActions
     {
         private @GameplayControls m_Wrapper;
         public PlayerActions(@GameplayControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @RollDice => m_Wrapper.m_Player_RollDice;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @Temp => m_Wrapper.m_Player_Temp;
+        public InputAction @NextDialog => m_Wrapper.m_Player_NextDialog;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -166,6 +212,12 @@ public partial class @GameplayControls : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Temp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTemp;
+                @Temp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTemp;
+                @Temp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTemp;
+                @NextDialog.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextDialog;
+                @NextDialog.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextDialog;
+                @NextDialog.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextDialog;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -176,6 +228,12 @@ public partial class @GameplayControls : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Temp.started += instance.OnTemp;
+                @Temp.performed += instance.OnTemp;
+                @Temp.canceled += instance.OnTemp;
+                @NextDialog.started += instance.OnNextDialog;
+                @NextDialog.performed += instance.OnNextDialog;
+                @NextDialog.canceled += instance.OnNextDialog;
             }
         }
     }
@@ -193,5 +251,7 @@ public partial class @GameplayControls : IInputActionCollection2, IDisposable
     {
         void OnRollDice(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnTemp(InputAction.CallbackContext context);
+        void OnNextDialog(InputAction.CallbackContext context);
     }
 }

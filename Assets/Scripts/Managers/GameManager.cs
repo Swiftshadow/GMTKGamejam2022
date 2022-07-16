@@ -52,9 +52,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private IntChannel requestStateChange;
 
-    private GameState currentState = GameState.Menu;
+    [SerializeField] private GameState currentState = GameState.Menu;
 
-    private GameState previousState = GameState.Menu;
+    [SerializeField] private GameState previousState = GameState.Menu;
     
 
     public GameState CurrentState
@@ -70,9 +70,13 @@ public class GameManager : MonoBehaviour
         Menu,
         StatSelection,
         Transition,
+        SlideIn,
+        Rollable,
         Rolling,
         Modifying,
+        SlideOut,
         Talking,
+        PostTalk,
         Win,
         Lose,
         Paused
@@ -102,7 +106,7 @@ public class GameManager : MonoBehaviour
                 {
                     break;
                 }
-                if ((currentState != GameState.Talking && currentState != GameState.Transition))
+                if (currentState != GameState.Rollable)
                 {
                     return;
                 }
@@ -122,7 +126,7 @@ public class GameManager : MonoBehaviour
                 {
                     break;
                 }
-                if ((currentState != GameState.Modifying))
+                if ((currentState != GameState.SlideOut))
                 {
                     return;
                 }
@@ -146,6 +150,7 @@ public class GameManager : MonoBehaviour
                 }
 
                 currentState = GameState.Menu;
+                Time.timeScale = 1;
                 
                 break;
             default:
