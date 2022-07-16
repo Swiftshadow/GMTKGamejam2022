@@ -346,8 +346,8 @@ GameObject:
   - component: {fileID: 219376034}
   - component: {fileID: 219376033}
   - component: {fileID: 219376032}
-  - component: {fileID: 219376031}
   - component: {fileID: 219376030}
+  - component: {fileID: 219376031}
   - component: {fileID: 219376029}
   m_Layer: 5
   m_Name: LL Dialogue
@@ -403,7 +403,7 @@ Animator:
   m_GameObject: {fileID: 219376027}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c78e8a62032aded49acd12b9bd6ee2eb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9d78f2be89b4bcb4f8924105b7f009a3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -644,6 +644,7 @@ MonoBehaviour:
   choiceStatChannel: {fileID: 11400000, guid: 905764450ff6ae94f924cbf41645cdd4, type: 2}
   dialogueSuccessChannel: {fileID: 11400000, guid: d361cb520c1c5724d838b9e2f174a944, type: 2}
   nextDialogChannel: {fileID: 11400000, guid: 75fc1f0dc68f5e64c982a81ae7cabd7b, type: 2}
+  confirmStatChannel: {fileID: 11400000, guid: 0d3c191b398798f498e15a576b9f2d29, type: 2}
   option1: {fileID: 1562940768}
   option2: {fileID: 1329343632}
   dialogueBox: {fileID: 1758927210}
@@ -1835,7 +1836,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1724255792}
   m_OnClick:
     m_PersistentCalls:
@@ -2261,8 +2262,8 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1724255792}
+  m_Interactable: 0
+  m_TargetGraphic: {fileID: 1912161668}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
