@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Manages uploading the dialogue to the UI elements
@@ -41,6 +42,7 @@ public class DialogueManager : StateInteractor
     [SerializeField] private IntIntChannel choiceStatChannel;
     [SerializeField] private BoolChannel dialogueSuccessChannel;
     [SerializeField] private VoidChannel nextDialogChannel;
+    [SerializeField] private VoidChannel confirmStatChannel;
 
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI option1;
@@ -65,6 +67,16 @@ public class DialogueManager : StateInteractor
     private void Start()
     {
         currentLines = new List<string>();
+    }
+
+    private void StartDialogueManager(byte b = default)
+    {
+        StartCoroutine(DelayedStart());
+    }
+
+    private IEnumerator DelayedStart()
+    {
+        yield return new WaitForSeconds(0.1f);
         NextState(false);
     }
 
@@ -76,7 +88,6 @@ public class DialogueManager : StateInteractor
             Debug.Log("[DialogueManager] State change accepted, moving to player choice");
             NextState(false);
         }
-            
     }
 
     protected override void OnEnable()
@@ -84,6 +95,7 @@ public class DialogueManager : StateInteractor
         base.OnEnable();
         dialogueSuccessChannel.OnEventRaised += ChooseReactDialogue;
         nextDialogChannel.OnEventRaised += NextLine;
+        confirmStatChannel.OnEventRaised += StartDialogueManager;
     }
 
     protected override void OnDisable()
@@ -91,6 +103,7 @@ public class DialogueManager : StateInteractor
         base.OnDisable();
         dialogueSuccessChannel.OnEventRaised -= ChooseReactDialogue;
         nextDialogChannel.OnEventRaised -= NextLine;
+        confirmStatChannel.OnEventRaised -= StartDialogueManager;
     }
 
     /// <summary>
@@ -163,6 +176,9 @@ public class DialogueManager : StateInteractor
     /// <param name="option">The option selected. [1,2]</param>
     public void ExportChoice(int option)
     {
+        option1.GetComponentInParent<Button>().interactable = false;
+        option2.GetComponentInParent<Button>().interactable = false;
+
         if (option == 1)
         {
             PrepDialogue(option1Data);
@@ -189,8 +205,6 @@ public class DialogueManager : StateInteractor
         {
             reactData = failPool.GetFromPool();
         }
-
-        
     }
 
     /// <summary>
@@ -246,7 +260,8 @@ public class DialogueManager : StateInteractor
     public void NextLine(byte b = default)
     {
         // If no dialogue, do nothing
-        if (currentLines.Count <= 0)
+        if (currentLines.Count <= 0 || 
+            GameManager.Instance.CurrentState == GameManager.GameState.StatSelection)
             return;
 
         // If already loading the text, don't progress but instead instantly load it
@@ -275,7 +290,11 @@ public class DialogueManager : StateInteractor
             }
             else if (currState == DialogueState.Response)
             {
-                requestStateChange.RaiseEvent((int)GameManager.GameState.SlideIn);
+                bool result = (GameManager.Instance.CurrentState == GameManager.GameState.Win
+                || GameManager.Instance.CurrentState == GameManager.GameState.Lose);
+
+                if(!result)
+                    requestStateChange.RaiseEvent((int)GameManager.GameState.SlideIn);
             }
 
             NextState(GameManager.Instance.CurrentState == GameManager.GameState.Win 

@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatShop
       objectReference: {fileID: 0}
+    - target: {fileID: 3494858264691615320, guid: 1c259a7f9535ff24dbfd96c46f66d31a, type: 3}
+      propertyPath: confirmStatChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d3c191b398798f498e15a576b9f2d29, type: 2}
     - target: {fileID: 3494858264691615327, guid: 1c259a7f9535ff24dbfd96c46f66d31a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
