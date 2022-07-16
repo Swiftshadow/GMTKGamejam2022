@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: FailResponse 1
   m_EditorClassIdentifier: 
-  dialogueFull: omg you failed lmao git gud 1
-  dialogueShorthand: 
+  dialogueFull: 'Ha! So you see the futility of this endeavor. '
+  dialogueShorthand: 'Ha! So you see the futility of this endeavor. '
   statID: 0
   statVal: 0

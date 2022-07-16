@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: IntelChoice 4
   m_EditorClassIdentifier: 
-  dialogueFull: -99
-  dialogueShorthand: Intel 4
+  dialogueFull: "You know, I\u2019ve got friends on Wall Street. They help me with
+    investments. They\u2019d agree that the bill should be paid by me."
+  dialogueShorthand: "You know, I\u2019ve got friends on Wall Street. They help me
+    with investments. They\u2019d agree that the bill should be paid by me."
   statID: 1
   statVal: 0

@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: GuiltChoice 4
   m_EditorClassIdentifier: 
-  dialogueFull: 'this is a guilt word blurb
-
-    haha
-
-    reeeeeeeee 4'
-  dialogueShorthand: Guilt 4
+  dialogueFull: "I don\u2019t understand why this is so important to you. Just let
+    me cover it. "
+  dialogueShorthand: "I don\u2019t understand why this is so important to you. Just
+    let me cover it. "
   statID: 2
   statVal: -99

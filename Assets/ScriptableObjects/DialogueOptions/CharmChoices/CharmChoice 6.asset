@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: CharmChoice 6
   m_EditorClassIdentifier: 
-  dialogueFull: 'this is a charming word blurb
-
-    haha
-
-    reeeeeeeee 6'
-  dialogueShorthand: Charm 6
+  dialogueFull: "Don\u2019t you know that luck has no bearing on my skill to pay
+    the bill, darling? *audible wink*"
+  dialogueShorthand: "Don\u2019t you know that luck has no bearing on my skill to
+    pay the bill, darling? *audible wink*"
   statID: 0
   statVal: -99

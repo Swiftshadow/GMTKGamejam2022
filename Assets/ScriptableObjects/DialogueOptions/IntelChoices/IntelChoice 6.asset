@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: IntelChoice 6
   m_EditorClassIdentifier: 
-  dialogueFull: -99
-  dialogueShorthand: Intel 6
+  dialogueFull: "I\u2019ve made some very, very solid investments lately. I\u2019m
+    not hurting for money. "
+  dialogueShorthand: "I\u2019ve made some very, very solid investments lately. I\u2019m
+    not hurting for money. "
   statID: 1
   statVal: 0

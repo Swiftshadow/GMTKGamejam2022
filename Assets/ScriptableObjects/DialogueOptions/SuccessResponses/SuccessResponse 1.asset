@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: SuccessResponse 1
   m_EditorClassIdentifier: 
-  dialogueFull: 'omg you won 1
-
-    the rigging system failed
-
-    :('
-  dialogueShorthand: 
+  dialogueFull: "Well obviously you\u2019ve cheated, but I'll let it slide. For now."
+  dialogueShorthand: "Well obviously you\u2019ve cheated, but I'll let it slide.
+    For now."
   statID: 0
   statVal: 0

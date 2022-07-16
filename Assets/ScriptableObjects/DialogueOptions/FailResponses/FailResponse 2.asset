@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: FailResponse 2
   m_EditorClassIdentifier: 
-  dialogueFull: omg you failed lmao git gud 2
-  dialogueShorthand: 
+  dialogueFull: "I\u2019m the Goddess of Luck. It\u2019s cute that you think you
+    can win. "
+  dialogueShorthand: "I\u2019m the Goddess of Luck. It\u2019s cute that you think
+    you can win. "
   statID: 0
   statVal: 0

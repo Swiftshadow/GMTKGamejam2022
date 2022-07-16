@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: CharmChoice 2
   m_EditorClassIdentifier: 
-  dialogueFull: 'this is a charming word blurb
-
-    haha
-
-    reeeeeeeee 2'
-  dialogueShorthand: Charm 2
+  dialogueFull: Oh, but that lovely dress must have left you wanting for money!
+  dialogueShorthand: Oh, but that lovely dress must have left you wanting for money!
   statID: 0
   statVal: -99
