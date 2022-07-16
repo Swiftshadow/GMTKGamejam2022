@@ -292,7 +292,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            ChangeState((int)GameState.SlideIn);
+            ChangeState((int)GameState.PostTalk);
         }
     }
 

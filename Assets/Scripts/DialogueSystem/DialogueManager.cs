@@ -58,8 +58,7 @@ public class DialogueManager : StateInteractor
         Response,
         End
     }
-    [SerializeField] private DialogueState currState = DialogueState.Loading;
-
+    private DialogueState currState = DialogueState.Loading;
 
     private void Start()
     {
@@ -126,8 +125,8 @@ public class DialogueManager : StateInteractor
     /// </summary>
     private void GetDialogueOptions()
     {
-        option1.transform.parent.gameObject.SetActive(true);
-        option2.transform.parent.gameObject.SetActive(true);
+        //option1.transform.parent.gameObject.SetActive(true);
+        //option2.transform.parent.gameObject.SetActive(true);
 
         int opt1 = Random.Range(0, pools.Count);
         int opt2;
@@ -249,9 +248,17 @@ public class DialogueManager : StateInteractor
             Debug.Log("Finished current dialogue! Calling state change!");
             dialogueBox.text = "";
 
-            if(currState == DialogueState.PlayerChoice)
+            if (currState == DialogueState.PlayerChoice)
             {
                 PrepDialogue(reactData);
+            }
+            else if (currState == DialogueState.Start)
+            {
+                requestStateChange.RaiseEvent((int)GameManager.GameState.SlideIn);
+            }
+            else if (currState == DialogueState.Response)
+            {
+                requestStateChange.RaiseEvent((int)GameManager.GameState.SlideIn);
             }
 
             NextState(GameManager.Instance.CurrentState == GameManager.GameState.Win 
