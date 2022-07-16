@@ -33,7 +33,10 @@ public class GameManager : MonoBehaviour
         if (instance is null)
         {
             instance = this;
-            maxPoints = baseStats[3];
+            for (int i = 0; i < maxStats.Length; ++i)
+            {
+                maxStats[i] = baseStats[i];
+            }
             DontDestroyOnLoad(this.gameObject.transform.parent);
         }
         else
@@ -124,6 +127,27 @@ public class GameManager : MonoBehaviour
                     return;
                 }
                 break;
+            case GameState.Paused:
+                if (currentState == GameState.Paused)
+                {
+                    newState = previousState;
+                }
+
+                if (currentState == GameState.Menu || currentState == GameState.Lose || currentState == GameState.Win)
+                {
+                    return;
+                }
+
+                break;
+            case GameState.Menu:
+                for (int i = 0; i < maxStats.Length; ++i)
+                {
+                    baseStats[i] = maxStats[i];
+                }
+
+                currentState = GameState.Menu;
+                
+                break;
             default:
                 Debug.Log("[GameManager] New state has no entry conditions");
                 break;
@@ -152,7 +176,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField] private int[] modStats;
 
-    private int maxPoints;
+    private int[] maxStats = new int[4];
 
     /// <summary>
     /// Gets the specific stat.
@@ -206,7 +230,7 @@ public class GameManager : MonoBehaviour
 
     public void SellStat(int index)
     {
-        if (baseStats[3] < maxPoints && baseStats[index] > 0)
+        if (baseStats[3] < maxStats[3] && baseStats[index] > 0)
         {
             ++baseStats[3];
             SetBaseStat(index, baseStats[index] - 1);

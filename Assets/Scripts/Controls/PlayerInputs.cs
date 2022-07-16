@@ -12,16 +12,46 @@ public class PlayerInputs : StateInteractor
 
     private InputAction rollDice;
 
+    private InputAction pause;
+    
     // Start is called before the first frame update
     private void Awake()
     {
         controls = new GameplayControls();
         rollDice = controls.Player.RollDice;
+        pause = controls.Player.Pause;
         controls.Player.Enable();
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        rollDice.performed += ctx => requestStateChange.RaiseEvent((int)GameManager.GameState.Rolling);
+        base.OnEnable();
+
+        rollDice.performed += SubscribeRolling;
+
+        pause.performed += SubscribePausing;
+    }
+
+    protected override void OnStateChange(int arg0)
+    {
+        
+    }
+
+    protected override void OnDisable()
+    {
+        controls.Player.Disable();
+        rollDice.performed -= SubscribeRolling;
+
+        pause.performed -= SubscribePausing;
+    }
+    
+    private void SubscribeRolling(InputAction.CallbackContext obj)
+    {
+        requestStateChange.RaiseEvent((int)GameManager.GameState.Rolling);
+    }
+    
+    private void SubscribePausing(InputAction.CallbackContext obj)
+    {
+        requestStateChange.RaiseEvent((int)GameManager.GameState.Paused);
     }
 }

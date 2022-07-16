@@ -40,7 +40,7 @@ public class DieManager : StateInteractor
         GameManager.GameState state = (GameManager.GameState)intState;
         if (state != GameManager.GameState.Rolling)
         {
-            if (rollRoutine != null)
+            if (state != GameManager.GameState.Paused && rollRoutine != null)
             {
                 StopCoroutine(rollRoutine);
             }

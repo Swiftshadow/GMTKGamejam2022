@@ -8,7 +8,7 @@ public abstract class StateInteractor : MonoBehaviour
     [SerializeField] protected IntChannel requestStateChange;
 
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         stateChangedChannel.OnEventRaised += OnStateChange;
     }
@@ -18,7 +18,7 @@ public abstract class StateInteractor : MonoBehaviour
         throw new System.NotImplementedException();
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         stateChangedChannel.OnEventRaised -= OnStateChange;
     }
