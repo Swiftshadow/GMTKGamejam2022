@@ -267,6 +267,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 148096985}
+  - component: {fileID: 148096988}
+  - component: {fileID: 148096987}
+  - component: {fileID: 148096986}
   m_Layer: 5
   m_Name: Intelligence
   m_TagString: Untagged
@@ -296,6 +299,58 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &148096986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148096984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 7
+  triggerName: SlideIn
+--- !u!114 &148096987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148096984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 3
+  triggerName: SlideOut
+--- !u!95 &148096988
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148096984}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 959d94125be55ae4782d0b4b4ba3bd7f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &317962674
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,6 +2728,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2005375882}
+  - component: {fileID: 2005375885}
+  - component: {fileID: 2005375884}
+  - component: {fileID: 2005375883}
   m_Layer: 5
   m_Name: Charm
   m_TagString: Untagged
@@ -2702,6 +2760,58 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2005375883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005375881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 7
+  triggerName: SlideIn
+--- !u!114 &2005375884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005375881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 3
+  triggerName: SlideOut
+--- !u!95 &2005375885
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005375881}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc807444726bf444da38912c2616984e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2040344260
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,6 +2821,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2040344261}
+  - component: {fileID: 2040344264}
+  - component: {fileID: 2040344263}
+  - component: {fileID: 2040344262}
   m_Layer: 5
   m_Name: Guilt
   m_TagString: Untagged
@@ -2740,3 +2853,55 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2040344262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040344260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 7
+  triggerName: SlideIn
+--- !u!114 &2040344263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040344260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afeb85dca0ce0cf4d92caae63eee57bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  validState: 3
+  triggerName: SlideOut
+--- !u!95 &2040344264
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040344260}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 474f9737d38c13848b5e47664461b24d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

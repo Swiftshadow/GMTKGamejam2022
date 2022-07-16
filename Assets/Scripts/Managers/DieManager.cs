@@ -103,11 +103,11 @@ public class DieManager : StateInteractor
 
         if (modDir > 0)
         {
-            SoundManager.PlaySound(GameAssets.Instance.sounds[3]);
+            SoundManager.PlaySound(GameAssets.Instance.sounds[7]);
         }
         else
         {
-            SoundManager.PlaySound(GameAssets.Instance.sounds[7]);
+            SoundManager.PlaySound(GameAssets.Instance.sounds[3]);
         }
         
         requestStateChange.RaiseEvent((int)GameManager.GameState.Modifying);
