@@ -74,8 +74,11 @@ public class DialogueManager : StateInteractor
     /// <param name="option">The option selected. [1,2]</param>
     public void ExportChoice(int option)
     {
-        Debug.Log("Exporting out option " + option);
-        if(option == 1)
+        Debug.Log("[DialogueManager] Exporting out option " + option);
+        option1.transform.parent.gameObject.SetActive(false);
+        option2.transform.parent.gameObject.SetActive(false);
+
+        if (option == 1)
         {
             choiceStatChannel.RaiseEvent((int)option1Data.statID, option1Data.statVal);
         }
@@ -148,7 +151,6 @@ public class DialogueManager : StateInteractor
         }
         line += ' ' + word;
         dividedLines.Add(line);
-        Debug.Log(data.name + " has been divided into " + dividedLines.Count + " lines");
         currentLines = dividedLines;
         lineIndex = 0;
         NextLine();
