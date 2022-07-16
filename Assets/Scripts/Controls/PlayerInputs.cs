@@ -14,12 +14,19 @@ public class PlayerInputs : StateInteractor
 
     private InputAction pause;
     
+    
+    //TODO: REMOVE TEMP
+    private InputAction temp;
+
+    [SerializeField] private GameManager.GameState tempCall;
+    
     // Start is called before the first frame update
     private void Awake()
     {
         controls = new GameplayControls();
         rollDice = controls.Player.RollDice;
         pause = controls.Player.Pause;
+        temp = controls.Player.Temp;
         controls.Player.Enable();
     }
 
@@ -30,6 +37,8 @@ public class PlayerInputs : StateInteractor
         rollDice.performed += SubscribeRolling;
 
         pause.performed += SubscribePausing;
+
+        temp.performed += SubscribeTemp;
     }
 
     protected override void OnStateChange(int arg0)
@@ -43,6 +52,8 @@ public class PlayerInputs : StateInteractor
         rollDice.performed -= SubscribeRolling;
 
         pause.performed -= SubscribePausing;
+        
+        temp.performed -= SubscribeTemp;
     }
     
     private void SubscribeRolling(InputAction.CallbackContext obj)
@@ -53,5 +64,10 @@ public class PlayerInputs : StateInteractor
     private void SubscribePausing(InputAction.CallbackContext obj)
     {
         requestStateChange.RaiseEvent((int)GameManager.GameState.Paused);
+    }
+    
+    private void SubscribeTemp(InputAction.CallbackContext obj)
+    {
+        requestStateChange.RaiseEvent((int)tempCall);
     }
 }

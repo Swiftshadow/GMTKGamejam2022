@@ -11,6 +11,11 @@ public class DieManager : StateInteractor
 
     private Coroutine rollRoutine;
 
+    private Coroutine showRoutine;
+
+    [Tooltip("Delay time between the dice finishing their roll and the showing process starting")]
+    [SerializeField] private float delayTime = 0.5f;
+    
     [SerializeField] private List<SelfIntChannel> dieChannels = new List<SelfIntChannel>();
 
     private List<GameObject> spawnedDice = new List<GameObject>();
@@ -38,26 +43,41 @@ public class DieManager : StateInteractor
     protected override void OnStateChange(int intState)
     {
         GameManager.GameState state = (GameManager.GameState)intState;
-        if (state != GameManager.GameState.Rolling)
+        if (state != GameManager.GameState.Rolling && state != GameManager.GameState.Modifying)
         {
-            if (state != GameManager.GameState.Paused && rollRoutine != null)
+            if (state != GameManager.GameState.Paused)
             {
-                StopCoroutine(rollRoutine);
+                if (rollRoutine != null)
+                {
+                    StopCoroutine(rollRoutine);
+                }
+
+                if (showRoutine != null)
+                {
+                    StopCoroutine(ShowResults());
+                }
             }
             
             return;
         }
 
-        // Zero out all mods before running the next dice
-        for (int i = 0; i < 3; ++i)
+        if (state == GameManager.GameState.Rolling)
         {
-            GameManager.Instance.SetStat(i, 0);
+            // Zero out all mods before running the next dice
+            for (int i = 0; i < 3; ++i)
+            {
+                GameManager.Instance.SetStat(i, 0);
+            }
+
+            stat = 0;
+            mod = 0;
+            rollRoutine = StartCoroutine(RollRoutine());
         }
-        
-        stat = 0;
-        mod = 0;
-        rollRoutine = StartCoroutine(RollRoutine());
-        
+        else
+        {
+            showRoutine = StartCoroutine(ShowResults());
+        }
+
 
     }
 
@@ -71,13 +91,6 @@ public class DieManager : StateInteractor
         {
             yield return wait;
         }
-
-        foreach (var die in spawnedDice)
-        {
-            Destroy(die);
-        }
-        
-        spawnedDice.Clear();
 
         int modDir = Math.Sign(stat);
 
@@ -118,5 +131,19 @@ public class DieManager : StateInteractor
         }
         Debug.Log($"Adding {num} to result!");
         dieChannels.Remove(channel);
+    }
+
+    private IEnumerator ShowResults()
+    {
+        yield return new WaitForSeconds(delayTime);
+        
+        foreach (var die in spawnedDice)
+        {
+            Destroy(die);
+        }
+        
+        spawnedDice.Clear();
+        
+        requestStateChange.RaiseEvent((int)GameManager.GameState.SlideOut);
     }
 }
