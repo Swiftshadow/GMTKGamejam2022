@@ -47,6 +47,17 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        currScore = startScore;
+        ChangeState((int)GameState.Talking);
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
     #region State Control
     [SerializeField] private IntChannel stateChangedChannel;
 
@@ -54,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameState currentState = GameState.Menu;
 
-    [SerializeField] private GameState previousState = GameState.Menu;
+    private GameState previousState = GameState.Menu;
     
 
     public GameState CurrentState
@@ -87,6 +98,7 @@ public class GameManager : MonoBehaviour
         requestStateChange.OnEventRaised += ChangeState;
         buyStatChannel.OnEventRaised += BuyStat;
         sellStatChannel.OnEventRaised += SellStat;
+        choiceStatChannel.OnEventRaised += DetermineSuccess;
     }
 
     /// <summary>
@@ -241,6 +253,49 @@ public class GameManager : MonoBehaviour
             SetBaseStat(index, baseStats[index] - 1);
         }
     }
-    
+
+    #endregion
+
+    #region Score Calculation
+
+    [SerializeField] private IntIntChannel choiceStatChannel;
+    [SerializeField] private BoolChannel dialogueSuccessChannel;
+    [SerializeField] private int maxScore;
+    [SerializeField] private int startScore;
+    [SerializeField] private int winIncrement;
+    [SerializeField] private int loseDecrement;
+    private int currScore;
+
+    private void DetermineSuccess(int statID, int statThreshold)
+    {
+        bool result = GetStat(statID) > statThreshold;
+        dialogueSuccessChannel.RaiseEvent(result);
+
+        // Change score based on success
+        if(result)
+        {
+            currScore += winIncrement;
+        }
+        else
+        {
+            currScore -= loseDecrement;
+        }
+        currScore = Mathf.Clamp(currScore, 0, maxScore);
+
+        // Determine next state
+        if (currScore == maxScore)
+        {
+            ChangeState((int)GameState.Win);
+        }
+        else if (currScore == 0)
+        {
+            ChangeState((int)GameState.Lose);
+        }
+        else
+        {
+            ChangeState((int)GameState.Rolling);
+        }
+    }
+
     #endregion
 }
