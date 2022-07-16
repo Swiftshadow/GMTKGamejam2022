@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,15 +43,48 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    private enum GameState
+    [SerializeField] private IntChannel stateChangedChannel;
+
+    [SerializeField] private IntChannel requestStateChange;
+
+    private GameState currentState;
+
+    private GameState previousState;
+    
+    public GameState CurrentState
+    {
+        get
+        {
+            return currentState;
+        }
+    }
+    
+    public enum GameState
     {
         Menu,
-        Gameplay,
+        StatSelection,
+        Rolling,
+        Modifying,
+        Talking,
+        Win,
+        Lose,
         Paused
     }
 
-    private void Start()
+    private void OnEnable()
     {
+        requestStateChange.OnEventRaised += ChangeState;
     }
 
+    /// <summary>
+    /// Changes the state of the game
+    /// TODO: Add checks to make sure the state change is legal
+    /// </summary>
+    /// <param name="state"></param>
+    private void ChangeState(int state)
+    {
+        previousState = currentState;
+        currentState = (GameState)state;
+        stateChangedChannel.RaiseEvent(state);
+    }
 }

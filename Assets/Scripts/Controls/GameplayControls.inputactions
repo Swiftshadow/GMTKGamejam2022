@@ -1,0 +1,40 @@
+{
+    "name": "GameplayControls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "fafc4493-235f-4401-9a12-eee34cda2793",
+            "actions": [
+                {
+                    "name": "RollDice",
+                    "type": "Button",
+                    "id": "523b24c4-c5b4-4086-859b-d737eb413637",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d2796ef2-03ca-469d-a794-85037bf67aae",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RollDice",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard Mouse",
+            "bindingGroup": "Keyboard Mouse",
+            "devices": []
+        }
+    ]
+}
