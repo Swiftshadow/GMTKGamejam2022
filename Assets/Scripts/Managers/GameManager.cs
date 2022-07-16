@@ -64,13 +64,13 @@ public class GameManager : MonoBehaviour
     
     public enum GameState
     {
-        Menu,
         StatSelection,
         Rolling,
         Modifying,
         Talking,
         Win,
         Lose,
+        Menu,
         Paused
     }
 
@@ -88,8 +88,44 @@ public class GameManager : MonoBehaviour
     /// <param name="state"></param>
     private void ChangeState(int state)
     {
+        GameState newState = (GameState)state;
+        // Prevents jumping states, unless going to a menu, win, or lose
+        switch (newState)
+        {
+            case GameState.Rolling:
+                if (currentState >= GameState.Win)
+                {
+                    break;
+                }
+                if ((currentState != GameState.Talking && currentState != GameState.StatSelection))
+                {
+                    return;
+                }
+                break;
+            case GameState.Modifying:
+                if (currentState >= GameState.Win)
+                {
+                    break;
+                }
+                if ((currentState != GameState.Rolling))
+                {
+                    return;
+                }
+                break;
+            case GameState.Talking:
+                if (currentState >= GameState.Win)
+                {
+                    break;
+                }
+                if ((currentState != GameState.Modifying))
+                {
+                    return;
+                }
+                break;
+        }
+        
         previousState = currentState;
-        currentState = (GameState)state;
+        currentState = newState;
         stateChangedChannel.RaiseEvent(state);
     }
     
