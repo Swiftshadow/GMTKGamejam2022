@@ -67,17 +67,6 @@
                 },
                 {
                     "name": "",
-                    "id": "ad2f3971-81ba-4929-9292-6500fe9a239e",
-                    "path": "<Keyboard>/numpad5",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Temp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "1583a137-8402-43e1-b727-f92e1f14e678",
                     "path": "<Keyboard>/enter",
                     "interactions": "",

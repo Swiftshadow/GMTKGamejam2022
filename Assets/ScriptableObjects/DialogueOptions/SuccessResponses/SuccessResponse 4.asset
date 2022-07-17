@@ -16,4 +16,4 @@ MonoBehaviour:
   dialogueShorthand: So you rolled lucky once. Big deal.
   statID: 0
   statVal: 0
-  pose: 1
+  pose: 0

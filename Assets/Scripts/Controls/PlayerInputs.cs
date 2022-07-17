@@ -43,7 +43,7 @@ public class PlayerInputs : StateInteractor
 
         nextDialog.performed += SubscribeNextDialog;
 
-        temp.performed += SubscribeTemp;
+        //temp.performed += SubscribeTemp;
     }
 
     protected override void OnStateChange(int arg0)
@@ -60,7 +60,7 @@ public class PlayerInputs : StateInteractor
         
         nextDialog.performed -= SubscribeNextDialog;
         
-        temp.performed -= SubscribeTemp;
+        //temp.performed -= SubscribeTemp;
     }
     
     private void SubscribeRolling(InputAction.CallbackContext obj)
