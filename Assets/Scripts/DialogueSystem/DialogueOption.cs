@@ -9,7 +9,8 @@ public class DialogueOption : ScriptableObject
     {
         Charm,
         Int,
-        Guilt
+        Guilt,
+        None
     }
     
     /// <summary>

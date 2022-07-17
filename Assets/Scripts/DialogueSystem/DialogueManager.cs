@@ -28,7 +28,7 @@ public class DialogueManager : StateInteractor
     /// </summary>
     private DialogueOption reactData;
 
-    private List<string> currentLines;
+    [SerializeField] private List<string> currentLines;
     [SerializeField] private float loadDelay;
     private int lineIndex;
     private bool loadingText;
@@ -38,6 +38,7 @@ public class DialogueManager : StateInteractor
     [SerializeField] private DialogueOption gameIntroDialogue;
     [SerializeField] private DialogueOption gameWinDialogue;
     [SerializeField] private DialogueOption gameLoseDialogue;
+    [SerializeField] private IconPopBehavior iconSystem;
 
     [Header("Channels")]
     [SerializeField] private IntIntChannel choiceStatChannel;
@@ -52,7 +53,6 @@ public class DialogueManager : StateInteractor
 
     [Tooltip("Max amount of characters allowed in a box")]
     [SerializeField] private int textboxLimit;
-
 
     public enum DialogueState
     {
@@ -183,11 +183,13 @@ public class DialogueManager : StateInteractor
 
         if (option == 1)
         {
+            iconSystem.EmotionPop(option1Data);
             PrepDialogue(option1Data);
             choiceStatChannel.RaiseEvent((int)option1Data.statID, option1Data.statVal);
         }
         else if (option == 2)
         {
+            iconSystem.EmotionPop(option2Data);
             PrepDialogue(option2Data);
             choiceStatChannel.RaiseEvent((int)option2Data.statID, option2Data.statVal);
         }
@@ -252,7 +254,11 @@ public class DialogueManager : StateInteractor
                 word += fulldata[i];
             }
         }
-        line += ' ' + word;
+        if (line == "")
+            line = word;
+        else
+            line += ' ' + word;
+
         dividedLines.Add(line);
         currentLines = dividedLines;
         lineIndex = 0;
@@ -326,12 +332,15 @@ public class DialogueManager : StateInteractor
         string tempString = "";
         for(int i = 0; i < fulldata.Length; i++)
         {
+            if (fulldata[i] == ' ' && i == 0)
+                continue;
+
             tempString += fulldata[i];
             target.text = tempString;
             yield return new WaitForSecondsRealtime(delay);
             yield return null;
         }
-        target.text = fulldata;
+        target.text = tempString;
         loadingText = false;
         lineIndex++;
     }

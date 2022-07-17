@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StateAnimator : StateInteractor
 {
-
     public GameManager.GameState validState;
 
     public string triggerName;
