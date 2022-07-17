@@ -161,8 +161,11 @@ public class GameManager : MonoBehaviour
                 for (int i = 0; i < maxStats.Length; ++i)
                 {
                     baseStats[i] = maxStats[i];
+                    modStats[i] = 0;
                 }
 
+                currScore = startScore;
+                
                 currentState = GameState.Menu;
                 Time.timeScale = 1;
                 

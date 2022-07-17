@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndScreenBehaviour : MonoBehaviour
+public class EndScreenBehaviour : StateInteractor
 {
     private GameManager.GameState state;
 
@@ -26,6 +26,12 @@ public class EndScreenBehaviour : MonoBehaviour
 
     public void LoadMenu()
     {
+        requestStateChange.RaiseEvent((int)GameManager.GameState.Menu);
         LoadManager.Instance.LoadSingle("Title");
+    }
+
+    protected override void OnStateChange(int arg0)
+    {
+        
     }
 }
