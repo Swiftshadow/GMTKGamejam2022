@@ -167,15 +167,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
                 
                 break;
-            
-            case GameState.Lose:
-                LoadManager.Instance.LoadSingle("Endgame");
-                break;
-            
-            case GameState.Win:
-                LoadManager.Instance.LoadSingle("Endgame");
-                break;
-            
+
             default:
                 Debug.Log("[GameManager] New state has no entry conditions");
                 break;

@@ -282,6 +282,11 @@ public class DialogueManager : StateInteractor
             dialogueBox.text = "";
             currentLines.Clear();
 
+            if (currState == DialogueState.End)
+            {
+                LoadManager.Instance.LoadSingle("Endgame");
+            }
+            
             if (currState == DialogueState.PlayerChoice)
             {
                 PrepDialogue(reactData);

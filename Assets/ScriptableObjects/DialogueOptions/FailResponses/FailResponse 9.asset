@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: FailResponse 9
   m_EditorClassIdentifier: 
-  dialogueFull: You may have some skills, but at the end of the day, I pay the bills.
+  dialogueFull: '"You may have some skills, but at the end of the day, I pay the
+    bills."'
   dialogueShorthand: You may have some skills, but at the end of the day, I pay the
     bills.
   statID: 0

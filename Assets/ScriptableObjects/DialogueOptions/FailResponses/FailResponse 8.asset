@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: FailResponse 8
   m_EditorClassIdentifier: 
-  dialogueFull: "Just accept defeat. It\u2019ll make it easier. "
+  dialogueFull: "\"Just accept defeat. It\u2019ll make it easier.\""
   dialogueShorthand: "Just accept defeat. It\u2019ll make it easier. "
   statID: 0
   statVal: 0
