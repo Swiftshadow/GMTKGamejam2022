@@ -2221,7 +2221,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -18, y: 140}
+  m_AnchoredPosition: {x: 350, y: 140}
   m_SizeDelta: {x: 340, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1724255791
@@ -2344,7 +2344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
   requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
-  validState: 3
+  validState: 9
   triggerName: SlideOut
 --- !u!95 &1724255795
 Animator:
@@ -2380,7 +2380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
   requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
-  validState: 7
+  validState: 8
   triggerName: SlideIn
 --- !u!1 &1758927208
 GameObject:
@@ -2594,7 +2594,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -18, y: 37}
+  m_AnchoredPosition: {x: 350, y: 37}
   m_SizeDelta: {x: 340, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1912161668
@@ -2649,7 +2649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
   requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
-  validState: 3
+  validState: 9
   triggerName: SlideOut
 --- !u!95 &1912161671
 Animator:
@@ -2685,7 +2685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
   requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
-  validState: 7
+  validState: 8
   triggerName: SlideIn
 --- !u!114 &1912161673
 MonoBehaviour:
