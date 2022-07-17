@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: SuccessResponse 5
   m_EditorClassIdentifier: 
-  dialogueFull: '#l"I have more money than you can even dream of. Let me cover it!"'
-  dialogueShorthand: I have more money than you can even dream of. Let me cover it!
+  dialogueFull: '#l"Talk to the fox"'
+  dialogueShorthand: Talk to the fox
   statID: 0
   statVal: 0
   pose: 4

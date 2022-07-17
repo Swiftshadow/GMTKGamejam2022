@@ -697,6 +697,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 755f0f709881db64381318b7fc5a5270, type: 3}
   - {fileID: 21300000, guid: 1364deea0aa13914a97fdeb937da997c, type: 3}
   - {fileID: 21300000, guid: b4c59d7faafde6e4aba87f3002246fdb, type: 3}
+  - {fileID: 21300000, guid: 8a8ae3bff20e3994682d3d40f364824f, type: 3}
   currentPose: 0
   poseChannel: {fileID: 11400000, guid: 4d81590f75b1c124f918b0eb27082eb4, type: 2}
 --- !u!1 &671674846
