@@ -17,4 +17,4 @@ MonoBehaviour:
   dialogueShorthand: You drove all the way here to dine with me. This is the least
     I can do.
   statID: 2
-  statVal: -99
+  statVal: 4

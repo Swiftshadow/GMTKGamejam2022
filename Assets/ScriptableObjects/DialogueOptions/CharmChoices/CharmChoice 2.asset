@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogueFull: Oh, but that lovely dress must have left you wanting for money!
   dialogueShorthand: Oh, but that lovely dress must have left you wanting for money!
   statID: 0
-  statVal: -99
+  statVal: 4

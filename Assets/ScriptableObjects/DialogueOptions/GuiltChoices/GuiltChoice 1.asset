@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogueFull: "But you paid for it twice before. Don\u2019t I owe you?"
   dialogueShorthand: "But you paid for it twice before. Don\u2019t I owe you?"
   statID: 2
-  statVal: -99
+  statVal: 3

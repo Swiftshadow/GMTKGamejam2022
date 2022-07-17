@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogueFull: "I\u2019d never make you spend your hard-earned money, dear."
   dialogueShorthand: "I\u2019d never make you spend your hard-earned money, dear."
   statID: 0
-  statVal: -99
+  statVal: 3

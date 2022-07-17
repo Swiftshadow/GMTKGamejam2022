@@ -23,4 +23,9 @@ public class EndScreenBehaviour : MonoBehaviour
             winPanel.SetActive(true);
         }
     }
+
+    public void LoadMenu()
+    {
+        LoadManager.Instance.LoadSingle("Title");
+    }
 }

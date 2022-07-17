@@ -17,4 +17,4 @@ MonoBehaviour:
   dialogueShorthand: "If I cover this time, then you get to cover the next night
     out. It\u2019s simply logical."
   statID: 1
-  statVal: 0
+  statVal: 3

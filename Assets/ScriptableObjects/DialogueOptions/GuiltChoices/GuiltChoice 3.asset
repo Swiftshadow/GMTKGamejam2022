@@ -17,4 +17,4 @@ MonoBehaviour:
   dialogueShorthand: I did buy the more expensive dish. I got the steak tartare,
     and you only got a salad.
   statID: 2
-  statVal: -99
+  statVal: 4

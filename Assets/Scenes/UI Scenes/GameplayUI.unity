@@ -1270,8 +1270,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2662, y: -1.0514}
-  m_SizeDelta: {x: 323.6849, y: 82.7179}
+  m_AnchoredPosition: {x: -1.3522, y: -2.6627}
+  m_SizeDelta: {x: 271.72, y: 44.8521}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1329343632
 MonoBehaviour:
@@ -1293,7 +1293,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '*breakdance respectfully*'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d34147ebfdd944b4f969683aae294c1e, type: 2}
   m_sharedMaterial: {fileID: 6977602802886461718, guid: d34147ebfdd944b4f969683aae294c1e, type: 2}
@@ -1356,7 +1356,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.793793, y: 21.368404, z: 12.910049, w: 16.916656}
+  m_margin: {x: 0.125885, y: 0.01851225, z: 0.019577006, w: -0.0021095166}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1756,8 +1756,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.5958, y: -6.7}
-  m_SizeDelta: {x: 323.6849, y: 82.7179}
+  m_AnchoredPosition: {x: -1.5463, y: -2.2689}
+  m_SizeDelta: {x: 274.137, y: 45.6577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1562940768
 MonoBehaviour:
@@ -1779,7 +1779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ayo bb want sum fuck
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d34147ebfdd944b4f969683aae294c1e, type: 2}
   m_sharedMaterial: {fileID: 6977602802886461718, guid: d34147ebfdd944b4f969683aae294c1e, type: 2}
@@ -1842,7 +1842,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 19.690033, y: 14.275715, z: 3.1161957, w: 22.905476}
+  m_margin: {x: -0.048522968, y: 0.5795269, z: 0.69924927, w: -0.0557213}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

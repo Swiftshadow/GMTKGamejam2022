@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogueFull: Just let me handle it this time, love.
   dialogueShorthand: Just let me handle it this time, love.
   statID: 0
-  statVal: -99
+  statVal: 6

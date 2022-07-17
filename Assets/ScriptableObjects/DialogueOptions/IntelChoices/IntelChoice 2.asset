@@ -17,4 +17,4 @@ MonoBehaviour:
   dialogueShorthand: "You don\u2019t even like this restaurant. I chose it; therefore,
     I should pay."
   statID: 1
-  statVal: 0
+  statVal: 4

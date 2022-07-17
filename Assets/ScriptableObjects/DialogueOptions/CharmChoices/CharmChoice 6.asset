@@ -17,4 +17,4 @@ MonoBehaviour:
   dialogueShorthand: "Don\u2019t you know that luck has no bearing on my skill to
     pay the bill, darling? *audible wink*"
   statID: 0
-  statVal: -99
+  statVal: 7

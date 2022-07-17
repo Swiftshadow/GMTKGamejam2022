@@ -17,4 +17,4 @@ MonoBehaviour:
   dialogueShorthand: "It\u2019s only 30 dollars. That kind of paltry bill isn\u2019t
     worth your time."
   statID: 2
-  statVal: -99
+  statVal: 6

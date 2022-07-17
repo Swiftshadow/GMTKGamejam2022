@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogueFull: "It\u2019s only fair for me to pay, since I invited you out. "
   dialogueShorthand: "It\u2019s only fair for me to pay, since I invited you out. "
   statID: 2
-  statVal: -99
+  statVal: 7

@@ -17,4 +17,4 @@ MonoBehaviour:
   dialogueShorthand: "I can feel my bank account growing by simply being near you.
     Shouldn\u2019t I pay it forward?"
   statID: 0
-  statVal: -99
+  statVal: 4

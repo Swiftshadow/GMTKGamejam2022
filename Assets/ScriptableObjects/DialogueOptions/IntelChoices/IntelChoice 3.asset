@@ -17,4 +17,4 @@ MonoBehaviour:
   dialogueShorthand: "I\u2019ve done the math. Statistically speaking, I\u2019ve
     got a 99.999% chance to pay tonight. That\u2019s based on\u2026science."
   statID: 1
-  statVal: 0
+  statVal: 4

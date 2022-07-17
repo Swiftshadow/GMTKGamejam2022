@@ -17,4 +17,4 @@ MonoBehaviour:
   dialogueShorthand: "You are Lady Luck. Shouldn\u2019t I do something nice to get
     luck on my side?"
   statID: 0
-  statVal: -99
+  statVal: 6
