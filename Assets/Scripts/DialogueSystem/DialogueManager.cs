@@ -132,7 +132,7 @@ public class DialogueManager : StateInteractor
                 currState = DialogueState.PlayerChoice;
                 PrepDialogue(expositionPool.GetFromPool());
                 GetDialogueOptions();
-                nextArrow.gameObject.SetActive(false);
+                nextArrow.transform.parent.gameObject.SetActive(false);
                 break;
             case DialogueState.PlayerChoice:
                 // Text started by react func
@@ -224,7 +224,7 @@ public class DialogueManager : StateInteractor
     /// <param name="data">Dialogue data holding the text</param>
     private void PrepDialogue(DialogueOption data)
     {
-        nextArrow.gameObject.SetActive(true);
+        nextArrow.transform.parent.gameObject.SetActive(true);
         string fulldata = data.dialogueFull;
 
         List<string> dividedLines = new List<string>();
@@ -318,7 +318,7 @@ public class DialogueManager : StateInteractor
         else if(lineIndex == currentLines.Count)
         {
             Debug.Log("Finished current dialogue! Calling state change!");
-            nextArrow.gameObject.SetActive(false);
+            nextArrow.transform.parent.gameObject.SetActive(false);
             dialogueBox.text = "";
             currentLines.Clear();
 
