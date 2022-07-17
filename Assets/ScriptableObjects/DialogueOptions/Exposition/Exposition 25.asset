@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
+  m_Name: Exposition 25
+  m_EditorClassIdentifier: 
+  dialogueFull: "\u201CI know your job doesn\u2019t pay you well. It\u2019d be a
+    shame to go spend what you don\u2019t have.\u201D"
+  dialogueShorthand: "\u201CI know your job doesn\u2019t pay you well. It\u2019d
+    be a shame to go spend what you don\u2019t have.\u201D"
+  statID: 0
+  statVal: 0

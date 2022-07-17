@@ -124,6 +124,7 @@ public class DialogueManager : StateInteractor
                 break;
             case DialogueState.WaitingForRoll:
                 currState = DialogueState.PlayerChoice;
+                PrepDialogue(expositionPool.GetFromPool());
                 GetDialogueOptions();
                 break;
             case DialogueState.PlayerChoice:
