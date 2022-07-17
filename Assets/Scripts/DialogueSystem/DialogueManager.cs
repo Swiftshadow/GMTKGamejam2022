@@ -230,7 +230,11 @@ public class DialogueManager : StateInteractor
                 // If it fits, then add word to line
                 if (word.Length + line.Length + 1 <= textboxLimit && fulldata[i] == ' ')
                 {
-                    line += ' ' + word;
+                    if (line == "")
+                        line = word;
+                    else
+                        line += ' ' + word;
+
                     word = "";
                 }
                 // If overflowing, then submit the line and start a new one
