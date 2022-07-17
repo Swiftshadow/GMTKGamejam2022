@@ -16,3 +16,4 @@ MonoBehaviour:
   dialogueShorthand: Come on darling just give in.
   statID: 0
   statVal: 0
+  pose: 1

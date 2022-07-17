@@ -17,11 +17,9 @@ public class LadyLuckPoseManager : StateInteractor
     {
         Default,
         Laugh,
-        Smirk,
-        Excited,
-        EyesNarrow,
-        Smolder, 
-        HeadTurn
+        Smug,
+        HeadTurn,
+        Thinking
     }
 
     protected override void OnEnable()

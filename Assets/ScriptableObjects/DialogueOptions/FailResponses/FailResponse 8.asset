@@ -16,3 +16,4 @@ MonoBehaviour:
   dialogueShorthand: "Just accept defeat. It\u2019ll make it easier. "
   statID: 0
   statVal: 0
+  pose: 2
