@@ -18,3 +18,4 @@ MonoBehaviour:
     need it."
   statID: 0
   statVal: 0
+  pose: 1

@@ -16,3 +16,4 @@ MonoBehaviour:
   dialogueShorthand: 'Ha! So you see the futility of this endeavor. '
   statID: 0
   statVal: 0
+  pose: 1

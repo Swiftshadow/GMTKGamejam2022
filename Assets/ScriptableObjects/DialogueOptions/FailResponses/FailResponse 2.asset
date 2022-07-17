@@ -18,3 +18,4 @@ MonoBehaviour:
     you can win. "
   statID: 0
   statVal: 0
+  pose: 1
