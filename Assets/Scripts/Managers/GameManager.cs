@@ -215,6 +215,15 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Return the base stat value
+    /// </summary>
+    /// <returns></returns>
+    public int GetBaseStats()
+    {
+        return baseStats[0];
+    }
+
+    /// <summary>
     /// Sets the specific stat.
     /// 0 is Charm
     /// 1 is Int
