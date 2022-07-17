@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 3a81c4e9c66da964188959215ab86448, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82eb14120eedde745a13f519021676ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRangeBounds: {x: 20, y: 50}
+  timeRangeBounds: {x: 20, y: 40}
