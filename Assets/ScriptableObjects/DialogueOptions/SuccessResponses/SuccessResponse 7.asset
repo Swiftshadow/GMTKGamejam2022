@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: SuccessResponse 7
   m_EditorClassIdentifier: 
-  dialogueFull: '"Get rid of that smirk. I let you have that one."'
+  dialogueFull: '#l"Get rid of that smirk. I let you have that one."'
   dialogueShorthand: Get rid of that smirk. I let you have that one.
   statID: 0
   statVal: 0

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: GuiltChoice 5
   m_EditorClassIdentifier: 
-  dialogueFull: "It\u2019s only 30 dollars. That kind of paltry bill isn\u2019t worth
-    your time."
+  dialogueFull: "#pIt\u2019s only 30 dollars. That kind of paltry bill isn\u2019t
+    worth your time."
   dialogueShorthand: "It\u2019s only 30 dollars. That kind of paltry bill isn\u2019t
     worth your time."
   statID: 2

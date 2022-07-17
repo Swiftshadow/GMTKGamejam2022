@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: GuiltChoice 6
   m_EditorClassIdentifier: 
-  dialogueFull: "It\u2019s only fair for me to pay, since I invited you out. "
+  dialogueFull: "#pIt\u2019s only fair for me to pay, since I invited you out. "
   dialogueShorthand: "It\u2019s only fair for me to pay, since I invited you out. "
   statID: 2
   statVal: 7

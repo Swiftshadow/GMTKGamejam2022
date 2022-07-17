@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: Exposition 27
   m_EditorClassIdentifier: 
-  dialogueFull: "\u201CIsn\u2019t your brother out of a job now? Consider the money
+  dialogueFull: "#l\u201CIsn\u2019t your brother out of a job now? Consider the money
     you\u2019ll save as a donation to him.\u201D"
   dialogueShorthand: "\u201CIsn\u2019t your brother out of a job now? Consider the
     money you\u2019ll save as a donation to him.\u201D"

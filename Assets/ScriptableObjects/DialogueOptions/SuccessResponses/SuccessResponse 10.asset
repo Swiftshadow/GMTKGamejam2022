@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: SuccessResponse 10
   m_EditorClassIdentifier: 
-  dialogueFull: '"You do realize I could have swindled some fool for ten times this
-    bill by now, correct? This is pointless."'
+  dialogueFull: '#l"You do realize I could have swindled some fool for ten times
+    this bill by now, correct? This is pointless."'
   dialogueShorthand: You do realize I could have swindled some fool for ten times
     this bill by now, correct? This is pointless.
   statID: 0

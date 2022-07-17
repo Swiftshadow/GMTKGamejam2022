@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: Exposition 20
   m_EditorClassIdentifier: 
-  dialogueFull: "\u201CI heard your mother hasn\u2019t been doing well lately. Keep
-    your money. Just in case\u2026\u201D"
+  dialogueFull: "#l\u201CI heard your mother hasn\u2019t been doing well lately.
+    Keep your money. Just in case\u2026\u201D"
   dialogueShorthand: "\u201CI heard your mother hasn\u2019t been doing well lately.
     Keep your money. Just in case\u2026\u201D"
   statID: 0

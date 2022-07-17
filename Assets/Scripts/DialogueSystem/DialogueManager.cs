@@ -29,11 +29,15 @@ public class DialogueManager : StateInteractor
     private DialogueOption reactData;
 
     [SerializeField] private List<string> currentLines;
+    private List<Color> currentColors;
     [SerializeField] private float loadDelay;
     private int lineIndex;
     private bool loadingText;
     private Coroutine coroutineBuffer;
 
+    [SerializeField] private Color LLColor;
+    [SerializeField] private Color PCColor;
+    
     [Header("Event Stuff")]
     [SerializeField] private DialogueOption gameIntroDialogue;
     [SerializeField] private DialogueOption gameWinDialogue;
@@ -170,8 +174,8 @@ public class DialogueManager : StateInteractor
         option1Data = pools[opt1].GetFromPool();
         option2Data = pools[opt2].GetFromPool();
 
-        StartCoroutine(LoadText(option1, option1Data.dialogueShorthand, 0));
-        StartCoroutine(LoadText(option2, option2Data.dialogueShorthand, 0));
+        StartCoroutine(LoadText(option1, option1Data.dialogueShorthand, 0, PCColor));
+        StartCoroutine(LoadText(option2, option2Data.dialogueShorthand, 0, PCColor));
     }
 
     /// <summary>
@@ -223,10 +227,26 @@ public class DialogueManager : StateInteractor
         string fulldata = data.dialogueFull;
 
         List<string> dividedLines = new List<string>();
+        List<Color> dividedColors = new List<Color>();
+        Color currentColor = LLColor;
         string word = "";
         string line = "";
         for (int i = 0; i < fulldata.Length; i++)
         {
+            if (fulldata[i] == '#')
+            {
+                switch (fulldata[i + 1])
+                {
+                    case 'l':
+                        currentColor = LLColor;
+                        break;
+                    case 'p':
+                        currentColor = PCColor;
+                        break;
+                }
+
+                i += 2;
+            }
             // If a space, finish word, try adding to line
             if (fulldata[i] == ' ')
             {
@@ -244,6 +264,7 @@ public class DialogueManager : StateInteractor
                 else if (word.Length + line.Length + 1 > textboxLimit)
                 {
                     dividedLines.Add(line);
+                    dividedColors.Add(currentColor);
                     line = word;
                     word = "";
                 }
@@ -253,6 +274,7 @@ public class DialogueManager : StateInteractor
             {
                 line += ' ' + word;
                 dividedLines.Add(line);
+                dividedColors.Add(currentColor);
                 line = "";
                 word = "";
             }
@@ -267,7 +289,9 @@ public class DialogueManager : StateInteractor
             line += ' ' + word;
 
         dividedLines.Add(line);
+        dividedColors.Add(currentColor);
         currentLines = dividedLines;
+        currentColors = dividedColors;
         lineIndex = 0;
         NextLine();
     }
@@ -285,6 +309,7 @@ public class DialogueManager : StateInteractor
             if(coroutineBuffer != null)
                 StopCoroutine(coroutineBuffer);
             loadingText = false;
+            dialogueBox.color = currentColors[lineIndex];
             dialogueBox.text = currentLines[lineIndex];
             lineIndex++;
         }
@@ -324,7 +349,7 @@ public class DialogueManager : StateInteractor
         // Progress to the next line
         else
         {
-            coroutineBuffer = StartCoroutine(LoadText(dialogueBox, currentLines[lineIndex], loadDelay));
+            coroutineBuffer = StartCoroutine(LoadText(dialogueBox, currentLines[lineIndex], loadDelay, currentColors[lineIndex]));
         }
     }
 
@@ -333,8 +358,9 @@ public class DialogueManager : StateInteractor
     /// </summary>
     /// <param name="target">target UI element to load the text</param>
     /// <param name="data">text to load</param>
-    private IEnumerator LoadText(TextMeshProUGUI target, string data, float delay)
+    private IEnumerator LoadText(TextMeshProUGUI target, string data, float delay, Color textColor)
     {
+        target.color = textColor;
         loadingText = true;
         string fulldata = data;
         string tempString = "";

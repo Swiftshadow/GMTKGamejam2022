@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: IntelChoice 1
   m_EditorClassIdentifier: 
-  dialogueFull: "If I cover this time, then you get to cover the next night out.
+  dialogueFull: "#pIf I cover this time, then you get to cover the next night out.
     It\u2019s simply logical."
   dialogueShorthand: "If I cover this time, then you get to cover the next night
     out. It\u2019s simply logical."

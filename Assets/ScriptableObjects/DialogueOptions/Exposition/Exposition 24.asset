@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: Exposition 24
   m_EditorClassIdentifier: 
-  dialogueFull: "\u201CIt\u2019s getting late. How about you head home now and I\u2019ll
-    take care of the bill.\u201D"
+  dialogueFull: "#l\u201CIt\u2019s getting late. How about you head home now and
+    I\u2019ll take care of the bill.\u201D"
   dialogueShorthand: "\u201CIt\u2019s getting late. How about you head home now and
     I\u2019ll take care of the bill.\u201D"
   statID: 0

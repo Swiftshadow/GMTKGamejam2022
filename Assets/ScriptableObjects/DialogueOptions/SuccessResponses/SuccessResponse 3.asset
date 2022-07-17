@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: SuccessResponse 3
   m_EditorClassIdentifier: 
-  dialogueFull: '"You may have gotten this round, but the dice will always favor
+  dialogueFull: '#l"You may have gotten this round, but the dice will always favor
     me in the end."'
   dialogueShorthand: You may have gotten this round, but the dice will always favor
     me in the end.

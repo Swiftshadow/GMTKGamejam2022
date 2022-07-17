@@ -668,6 +668,8 @@ MonoBehaviour:
   expositionPool: {fileID: 273881300}
   currentLines: []
   loadDelay: 0.01
+  LLColor: {r: 0.9803922, g: 0.6862745, b: 0.16470589, a: 1}
+  PCColor: {r: 1, g: 1, b: 1, a: 1}
   gameIntroDialogue: {fileID: 11400000, guid: a06c33c43e0f66a47bc8b6d64e628bae, type: 2}
   gameWinDialogue: {fileID: 11400000, guid: 813878b0f32d8ae459d0f70f75f2a537, type: 2}
   gameLoseDialogue: {fileID: 11400000, guid: 00877764006e0f34ba058aa9556adce8, type: 2}
@@ -1282,7 +1284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1397,7 +1399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.026485443, a: 1}
+  m_Color: {r: 0.9803922, g: 0.854902, b: 0.16078432, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

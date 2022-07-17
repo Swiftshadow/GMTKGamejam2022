@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: FailResponse 10
   m_EditorClassIdentifier: 
-  dialogueFull: "\"You're welcome by the way. Don\u2019t worry about saying it. I
-    already know the outcome.\""
+  dialogueFull: "#l\"You're welcome by the way. Don\u2019t worry about saying it.
+    I already know the outcome.\""
   dialogueShorthand: "You're welcome by the way. Don\u2019t worry about saying it.
     I already know the outcome."
   statID: 0

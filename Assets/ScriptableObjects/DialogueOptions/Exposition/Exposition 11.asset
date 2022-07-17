@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: Exposition 11
   m_EditorClassIdentifier: 
-  dialogueFull: "\u201CSave your money and get new pants already. That set\u2019s
+  dialogueFull: "#l\u201CSave your money and get new pants already. That set\u2019s
     old and ragged.\u201D"
   dialogueShorthand: "\u201CSave your money and get new pants already. That set\u2019s
     old and ragged.\u201D"

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: IntelChoice 2
   m_EditorClassIdentifier: 
-  dialogueFull: "You don\u2019t even like this restaurant. I chose it; therefore,
+  dialogueFull: "#pYou don\u2019t even like this restaurant. I chose it; therefore,
     I should pay."
   dialogueShorthand: "You don\u2019t even like this restaurant. I chose it; therefore,
     I should pay."

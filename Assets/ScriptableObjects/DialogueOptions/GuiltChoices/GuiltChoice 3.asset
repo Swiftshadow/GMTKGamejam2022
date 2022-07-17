@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: GuiltChoice 3
   m_EditorClassIdentifier: 
-  dialogueFull: I did buy the more expensive dish. I got the steak tartare, and you
-    only got a salad.
+  dialogueFull: '#pI did buy the more expensive dish. I got the steak tartare, and
+    you only got a salad.'
   dialogueShorthand: I did buy the more expensive dish. I got the steak tartare,
     and you only got a salad.
   statID: 2

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: Exposition 12
   m_EditorClassIdentifier: 
-  dialogueFull: "\u201CYou just bought that fancy new wrist watch. Your wallet must
-    be hurting.\u201D"
+  dialogueFull: "#l\u201CYou just bought that fancy new wrist watch. Your wallet
+    must be hurting.\u201D"
   dialogueShorthand: "\u201CYou just bought that fancy new wrist watch. Your wallet
     must be hurting.\u201D"
   statID: 0

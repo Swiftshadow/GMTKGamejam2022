@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: CharmChoice 1
   m_EditorClassIdentifier: 
-  dialogueFull: "I\u2019d never make you spend your hard-earned money, dear."
+  dialogueFull: "#pI\u2019d never make you spend your hard-earned money, dear."
   dialogueShorthand: "I\u2019d never make you spend your hard-earned money, dear."
   statID: 0
   statVal: 3

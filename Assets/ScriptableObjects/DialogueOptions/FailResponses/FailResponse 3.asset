@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: FailResponse 3
   m_EditorClassIdentifier: 
-  dialogueFull: '"Come on darling just give in."'
+  dialogueFull: '#l"Come on darling just give in."'
   dialogueShorthand: Come on darling just give in.
   statID: 0
   statVal: 0

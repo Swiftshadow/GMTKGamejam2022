@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: Exposition 6
   m_EditorClassIdentifier: 
-  dialogueFull: "\u201CYou haven\u2019t been the most responsible with your money
+  dialogueFull: "#l\u201CYou haven\u2019t been the most responsible with your money
     lately... Maybe you should save as much as you can.\u201D"
   dialogueShorthand: "\u201CYou haven\u2019t been the most responsible with your
     money lately... Maybe you should save as much as you can.\u201D"

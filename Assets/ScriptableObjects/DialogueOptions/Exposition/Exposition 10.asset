@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: Exposition 10
   m_EditorClassIdentifier: 
-  dialogueFull: "\u201COh, why don\u2019t you save it to buy yourself some new decor.
-    Your apartment is\u2026 rather lacking.\u201D"
+  dialogueFull: "#l\u201COh, why don\u2019t you save it to buy yourself some new
+    decor. Your apartment is\u2026 rather lacking.\u201D"
   dialogueShorthand: "\u201COh, why don\u2019t you save it to buy yourself some new
     decor. Your apartment is\u2026 rather lacking.\u201D"
   statID: 0

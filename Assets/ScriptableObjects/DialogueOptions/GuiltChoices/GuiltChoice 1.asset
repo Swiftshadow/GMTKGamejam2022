@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: GuiltChoice 1
   m_EditorClassIdentifier: 
-  dialogueFull: "But you paid for it twice before. Don\u2019t I owe you?"
+  dialogueFull: "#pBut you paid for it twice before. Don\u2019t I owe you?"
   dialogueShorthand: "But you paid for it twice before. Don\u2019t I owe you?"
   statID: 2
   statVal: 3

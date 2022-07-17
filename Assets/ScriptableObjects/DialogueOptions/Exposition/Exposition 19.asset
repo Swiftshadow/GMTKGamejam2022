@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cd81595c9b5e47b2cd35b3ec89213, type: 3}
   m_Name: Exposition 19
   m_EditorClassIdentifier: 
-  dialogueFull: "\u201CDon\u2019t you know that letting your partner pay is the newest
-    trend?\u201D"
+  dialogueFull: "#l\u201CDon\u2019t you know that letting your partner pay is the
+    newest trend?\u201D"
   dialogueShorthand: "\u201CDon\u2019t you know that letting your partner pay is
     the newest trend?\u201D"
   statID: 0
