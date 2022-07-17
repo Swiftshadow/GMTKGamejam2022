@@ -678,6 +678,7 @@ MonoBehaviour:
   dialogueSuccessChannel: {fileID: 11400000, guid: d361cb520c1c5724d838b9e2f174a944, type: 2}
   nextDialogChannel: {fileID: 11400000, guid: 75fc1f0dc68f5e64c982a81ae7cabd7b, type: 2}
   confirmStatChannel: {fileID: 11400000, guid: 0d3c191b398798f498e15a576b9f2d29, type: 2}
+  poseChannel: {fileID: 11400000, guid: 4d81590f75b1c124f918b0eb27082eb4, type: 2}
   option1: {fileID: 1562940768}
   option2: {fileID: 1329343632}
   dialogueBox: {fileID: 1758927210}

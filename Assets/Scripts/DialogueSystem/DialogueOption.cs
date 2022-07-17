@@ -12,7 +12,7 @@ public class DialogueOption : ScriptableObject
         Guilt,
         None
     }
-    
+
     /// <summary>
     /// Full dialogue option
     /// </summary>
@@ -33,4 +33,9 @@ public class DialogueOption : ScriptableObject
     /// 
     /// </summary>
     public int statVal;
+
+    /// <summary>
+    /// If reaction, pose that Lady Luck will use
+    /// </summary>
+    public LadyLuckPoseManager.Pose pose;
 }

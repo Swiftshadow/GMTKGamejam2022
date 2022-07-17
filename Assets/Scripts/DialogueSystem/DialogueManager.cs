@@ -49,6 +49,7 @@ public class DialogueManager : StateInteractor
     [SerializeField] private BoolChannel dialogueSuccessChannel;
     [SerializeField] private VoidChannel nextDialogChannel;
     [SerializeField] private VoidChannel confirmStatChannel;
+    [SerializeField] private IntChannel poseChannel;
 
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI option1;
@@ -328,7 +329,10 @@ public class DialogueManager : StateInteractor
             
             if (currState == DialogueState.PlayerChoice)
             {
+                // submit reaction and the pose to be used
                 PrepDialogue(reactData);
+                poseChannel.RaiseEvent((int)reactData.pose);
+
             }
             else if (currState == DialogueState.Start)
             {

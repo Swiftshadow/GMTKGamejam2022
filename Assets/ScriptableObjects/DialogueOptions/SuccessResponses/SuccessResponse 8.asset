@@ -16,3 +16,4 @@ MonoBehaviour:
   dialogueShorthand: "You\u2019re lucky you\u2019re as cute as you are stupid."
   statID: 0
   statVal: 0
+  pose: 1

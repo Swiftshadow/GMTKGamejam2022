@@ -601,6 +601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 592375835}
   - component: {fileID: 592375834}
+  - component: {fileID: 592375836}
   m_Layer: 0
   m_Name: Lady Luck
   m_TagString: Untagged
@@ -675,6 +676,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &592375836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592375833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55224aab87e82de44ada015c28a8bcaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateChangedChannel: {fileID: 11400000, guid: 54c123e6d9706084ebd7e428619efa2a, type: 2}
+  requestStateChange: {fileID: 11400000, guid: bc654bc8306dad14e9fe80dc0a59bce3, type: 2}
+  poses:
+  - {fileID: 21300000, guid: 6232c2b8f046b58478dad9e1c1e87e64, type: 3}
+  - {fileID: 21300000, guid: 82bbaa7422531834287de92871415180, type: 3}
+  currentPose: 0
+  poseChannel: {fileID: 11400000, guid: 4d81590f75b1c124f918b0eb27082eb4, type: 2}
 --- !u!1 &671674846
 GameObject:
   m_ObjectHideFlags: 0
