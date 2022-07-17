@@ -14,6 +14,7 @@ public class DialogueManager : StateInteractor
     [SerializeField] private List<DialoguePool> pools;
     [SerializeField] private DialoguePool successPool;
     [SerializeField] private DialoguePool failPool;
+    [SerializeField] private DialoguePool expositionPool;
     /// <summary>
     /// Data from the first option
     /// </summary>
