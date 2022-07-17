@@ -50,6 +50,7 @@ public class DialogueManager : StateInteractor
     [SerializeField] private TextMeshProUGUI option1;
     [SerializeField] private TextMeshProUGUI option2;
     [SerializeField] private TextMeshProUGUI dialogueBox;
+    [SerializeField] private Image nextArrow;
 
     [Tooltip("Max amount of characters allowed in a box")]
     [SerializeField] private int textboxLimit;
@@ -126,6 +127,7 @@ public class DialogueManager : StateInteractor
                 currState = DialogueState.PlayerChoice;
                 PrepDialogue(expositionPool.GetFromPool());
                 GetDialogueOptions();
+                nextArrow.gameObject.SetActive(false);
                 break;
             case DialogueState.PlayerChoice:
                 // Text started by react func
@@ -217,6 +219,7 @@ public class DialogueManager : StateInteractor
     /// <param name="data">Dialogue data holding the text</param>
     private void PrepDialogue(DialogueOption data)
     {
+        nextArrow.gameObject.SetActive(true);
         string fulldata = data.dialogueFull;
 
         List<string> dividedLines = new List<string>();
@@ -289,6 +292,7 @@ public class DialogueManager : StateInteractor
         else if(lineIndex == currentLines.Count)
         {
             Debug.Log("Finished current dialogue! Calling state change!");
+            nextArrow.gameObject.SetActive(false);
             dialogueBox.text = "";
             currentLines.Clear();
 
