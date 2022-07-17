@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SuccessResponse 9
   m_EditorClassIdentifier: 
   dialogueFull: "#l\"Don\u2019t look at me like that! My dice just slipped out of
-    hand.\""
+    my hand.\""
   dialogueShorthand: "Don\u2019t look at me like that! My dice just slipped out of
     hand."
   statID: 0
   statVal: 0
-  pose: 4
+  pose: 6
