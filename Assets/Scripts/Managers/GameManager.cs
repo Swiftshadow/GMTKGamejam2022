@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameState.Rolling:
-                if (currentState >= GameState.Win)
+                if (newState >= GameState.Win)
                 {
                     break;
                 }
