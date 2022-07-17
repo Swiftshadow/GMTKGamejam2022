@@ -20,7 +20,8 @@ public class LadyLuckPoseManager : StateInteractor
         Smug,
         Excited,
         HeadTurn,
-        Thinking
+        Thinking,
+        Fox
     }
 
     protected override void OnEnable()

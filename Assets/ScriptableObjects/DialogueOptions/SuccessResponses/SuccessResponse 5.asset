@@ -16,4 +16,4 @@ MonoBehaviour:
   dialogueShorthand: Talk to the fox
   statID: 0
   statVal: 0
-  pose: 4
+  pose: 6
