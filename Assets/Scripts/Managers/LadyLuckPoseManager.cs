@@ -18,6 +18,7 @@ public class LadyLuckPoseManager : StateInteractor
         Default,
         Laugh,
         Smug,
+        Excited,
         HeadTurn,
         Thinking
     }
