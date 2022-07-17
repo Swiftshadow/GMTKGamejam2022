@@ -542,6 +542,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262505628}
   m_CullTransparentMesh: 1
+--- !u!114 &273881300 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4436723510197345893, guid: 11cba3056138e014081a65b88d0b7133, type: 3}
+  m_PrefabInstance: {fileID: 807947229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2f7a98bbf09fb4ba49481d88023711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &317962674
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +704,7 @@ MonoBehaviour:
   - {fileID: 807947233}
   successPool: {fileID: 807947232}
   failPool: {fileID: 807947230}
-  expositionPool: {fileID: 0}
+  expositionPool: {fileID: 273881300}
   loadDelay: 0.01
   gameIntroDialogue: {fileID: 11400000, guid: a06c33c43e0f66a47bc8b6d64e628bae, type: 2}
   gameWinDialogue: {fileID: 11400000, guid: 813878b0f32d8ae459d0f70f75f2a537, type: 2}
