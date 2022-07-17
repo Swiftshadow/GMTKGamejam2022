@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI Scenes/PauseMenu.unity
     guid: d4e564a8b1764f64799b9803eb1e3540
+  - enabled: 1
+    path: Assets/Scenes/UI Scenes/Endgame.unity
+    guid: 66e76421f7c540e48a4cf91f8ef7c9ac
   m_configObjects: {}

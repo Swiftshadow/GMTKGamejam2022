@@ -167,6 +167,15 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
                 
                 break;
+            
+            case GameState.Lose:
+                LoadManager.Instance.LoadSingle("Endgame");
+                break;
+            
+            case GameState.Win:
+                LoadManager.Instance.LoadSingle("Endgame");
+                break;
+            
             default:
                 Debug.Log("[GameManager] New state has no entry conditions");
                 break;
@@ -249,7 +258,7 @@ public class GameManager : MonoBehaviour
 
     public void SellStat(int index)
     {
-        if (baseStats[3] < maxStats[3] && baseStats[index] > 0)
+        if (baseStats[3] < maxStats[3] && baseStats[index] > maxStats[index])
         {
             ++baseStats[3];
             SetBaseStat(index, baseStats[index] - 1);
